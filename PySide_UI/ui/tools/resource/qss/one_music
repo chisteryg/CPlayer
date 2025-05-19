@@ -1,0 +1,42 @@
+*{
+	color: white;
+	border-radius: 10px;
+	font-size: 16px;
+	font-weight: 700;
+	font-family: 楷体;
+}
+QWidget[music]:hover{
+	background-color: rgba(255, 255, 255, 0.6);
+}
+/*序号标签*/
+#cound_lab{
+	font-size: 18px;
+}
+/*音乐名称*/
+#music_name_lab{
+	font-size: 20px;
+}
+#music_name_lab:hover{
+	color: #5ca697;
+}
+/*时长标签*/
+#duration_lab{
+	font-size: 18px;
+}
+/*播放按钮*/
+#play_music_btn{
+	border-radius: 10px;
+	border-image: url(:/icon_music/tools/resource/bg/icon/fonts.google/music/play.png);
+}
+
+
+
+
+
+QPushButton {
+	border: 2px solid white;
+	border-radius:10px;
+}
+QPushButton:hover {
+	margin: 2px;
+}

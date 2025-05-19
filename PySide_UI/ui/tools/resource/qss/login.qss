@@ -1,0 +1,51 @@
+#qr_login_form {
+	border: 2px solid white;
+	background-color: #FCB902;
+	/*border-radius: 10px;*/
+}
+#move_widget {
+	border-bottom: 2px solid white;
+}
+
+/*关闭按钮*/
+#close_btn{
+	border-image: url(:/icon_title/tools/resource/bg/icon/fonts.google/title/close.png);
+}
+/*二维码按钮*/
+#qr_widget{
+	border: 2px solid white;
+	background-color: transparent;
+}
+#qr_btn{
+	/*background: rgba(255, 255, 255, 0.6);*/
+	background-color: transparent;
+}
+
+/*登录标签*/
+#label{
+	background-color: transparent;
+	font-family: ZCOOL KuaiLe;
+	font-size: 14px;
+	font-weight: 600;
+	color: #fffef9;
+}
+/*登录按钮*/
+#btn{
+	border: 2px solid white;
+	font-family: ZCOOL KuaiLe;
+	font-size: 16px;
+	font-weight: 700;
+	color: #fffef9;
+}
+#btn:hover{
+	background-color: rgba(202, 143, 0, 0.5);
+}
+#btn:pressed{
+	margin: 2px;
+	background-color: rgba(202, 143, 0, 0.7);
+}
+
+#close_btn:hover{
+	margin: 2px;
+}
+

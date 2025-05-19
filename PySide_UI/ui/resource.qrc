@@ -1,0 +1,49 @@
+<RCC>
+  <qresource prefix="link">
+    <file>tools/resource/bg/icon/link/folder.png</file>
+    <file>tools/resource/bg/icon/link/github.png</file>
+    <file>tools/resource/bg/icon/link/link_1.png</file>
+    <file>tools/resource/bg/icon/link/link_2.png</file>
+    <file>tools/resource/bg/icon/link/share.png</file>
+  </qresource>
+  <qresource prefix="play">
+    <file>tools/resource/bg/icon/play/volume_2.png</file>
+    <file>tools/resource/bg/icon/play/comment_1.png</file>
+    <file>tools/resource/bg/icon/play/comment_2.png</file>
+    <file>tools/resource/bg/icon/play/download_1.png</file>
+    <file>tools/resource/bg/icon/play/download_2.png</file>
+    <file>tools/resource/bg/icon/play/download_3.png</file>
+    <file>tools/resource/bg/icon/play/like.png</file>
+    <file>tools/resource/bg/icon/play/like_no.png</file>
+    <file>tools/resource/bg/icon/play/next.png</file>
+    <file>tools/resource/bg/icon/play/pause.png</file>
+    <file>tools/resource/bg/icon/play/play.png</file>
+    <file>tools/resource/bg/icon/play/previous.png</file>
+    <file>tools/resource/bg/icon/play/refresh.png</file>
+    <file>tools/resource/bg/icon/play/search_1.png</file>
+    <file>tools/resource/bg/icon/play/search_2.png</file>
+    <file>tools/resource/bg/icon/play/shuffe_1.png</file>
+    <file>tools/resource/bg/icon/play/shuffe_repeat.png</file>
+    <file>tools/resource/bg/icon/play/shuffle_random.png</file>
+    <file>tools/resource/bg/icon/play/subpage_1.png</file>
+    <file>tools/resource/bg/icon/play/subpage_2.png</file>
+    <file>tools/resource/bg/icon/play/subpage_3.png</file>
+    <file>tools/resource/bg/icon/play/volume_0.png</file>
+    <file>tools/resource/bg/icon/play/volume_1.png</file>
+    <file>tools/resource/bg/icon/play/volume_no.png</file>
+  </qresource>
+  <qresource prefix="vip">
+    <file>tools/resource/bg/icon/vip/vip.png</file>
+    <file>tools/resource/bg/icon/vip/vip_no.png</file>
+  </qresource>
+  <qresource prefix="title">
+    <file>tools/resource/bg/icon/title/clear.png</file>
+    <file>tools/resource/bg/icon/title/max.png</file>
+    <file>tools/resource/bg/icon/title/max_reset.png</file>
+    <file>tools/resource/bg/icon/title/min.png</file>
+    <file>tools/resource/bg/icon/title/setting_1.png</file>
+    <file>tools/resource/bg/icon/title/setting_2.png</file>
+    <file>tools/resource/bg/icon/title/settings_3.png</file>
+    <file>tools/resource/bg/icon/title/settings_4.png</file>
+  </qresource>
+</RCC>

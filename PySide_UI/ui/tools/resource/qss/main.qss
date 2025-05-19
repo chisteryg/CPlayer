@@ -1,0 +1,266 @@
+QWidget#main_music{
+	border-image: url(:/background/tools/resource/bg/background/WallpaperCave/wp12857385-4k-yellow-minimalist-wallpapers.jpg);
+}
+*{
+	background-color: transparent;
+	color: #fff8ea;
+	border: 2px solid white;
+	font-size: 16px;
+	font-weight: 700;
+	font-family: ZCOOL KuaiLe;
+}
+/*按钮动效*/
+QPushButton[effect]:hover{
+	color: white;
+	margin: 2px;
+}
+/*状态栏*/
+#move_widget{
+	border: none;
+	border-bottom: 2px solid white;
+}
+
+#username_lab{
+	padding: 3px;
+}
+#user_btn{
+	border-radius: 6px;
+}
+/*状态栏*/
+
+/*歌词滚动界面*/
+#music_name_lab_3{
+	font-size: 25px;
+	font-weight: 900;
+}
+#artists_lab_3{
+	font-size: 20px;
+	font-weight: 700;
+}
+/*歌词滚动界面*/
+
+
+/*模式按钮*/
+QPushButton[page]{
+	border: 2px solid #ca8f00;
+	border-radius: 15px;
+}
+QPushButton[page]:hover{
+	font-size: 17px;
+	background-color: #ca8f00;
+}
+QPushButton[page]:checked{
+	font-size: 17px;
+	background-color: #ca8f00;
+	border: 2px solid #ffffff;
+}
+/*模式按钮*/
+
+/*垂直滚动条样式*/
+QScrollBar::add-line, QScrollBar::sub-line {
+    width: 0;  /* 隐藏水平滚动条的箭头 */
+    height: 0; /* 隐藏垂直滚动条的箭头 */
+}
+QScrollBar::add-page, QScrollBar::sub-page {
+    /*background: transparent;*/
+    background: rgba(255, 255, 255, 0.5);
+	border: 0px;
+	border-radius: 2px;
+	padding-top: 2px;
+    padding-bottom: 2px;
+}
+QScrollBar{
+    width: 10px;
+    border: 0px;
+    border-radius: 5px;
+	padding: 2px;
+}
+QScrollBar::handle{
+    width: 4px;
+    border-radius: 2px;
+    background-color: #b17a00;
+}
+QScrollBar::handle:hover{
+    background-color: #835302;
+}
+QScrollBar:vertical {
+    border: none;          /* 去除滚动条整体边框 */
+    background: transparent;  /* 背景透明（可选） */
+}
+QScrollArea .QWidget{
+	border: none;
+}
+QScrollArea{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+/*垂直滚动条样式*/
+
+/*推荐页面通用样式*/
+[recommend]{
+	font-weight: 700;
+	font-size: 30px;
+}
+[day]{
+	font-size: 18px;
+}
+/*推荐页面通用样式*/
+
+
+
+
+/*私人fm*/
+#music_name_lab_2{
+	font-size: 25px;
+	font-weight: 900;
+}
+#artists_lab_2{
+	font-size: 18px;
+	font-weight: 700;
+}
+/*私人fm*/
+
+/*歌单信息*/
+#list_img_btn{
+	border-radius: 20px;
+}
+#list_count_btn{
+	padding-left: 10px;
+}
+/*歌单信息*/
+
+/*播放栏*/
+#music_pic_btn{
+	border-radius: 10px;
+}
+#music_name_lab{
+	font-size: 20px;
+}
+#music_name_lab:hover{
+	color: #dfe0df;
+}
+#artists_lab{
+	font-size: 16px;
+	font-weight:700;
+}
+[time]{
+	color: #85A6BE;
+	font-size: 16px;
+}
+/*进度滑动条*/
+QSlider#music_time_slider::groove
+{
+	background:white;
+	height:6px;
+	border-radius: 3px;
+}
+
+QSlider#music_time_slider::sub-page
+{
+	background-color: #b17a00;
+	border-radius: 3px;
+}
+
+QSlider#music_time_slider::add-page
+{
+	background-color: #da9f53;
+	border-radius: 3px;
+}
+
+QSlider#music_time_slider::handle
+{
+	height: 10px;
+	width: 10px;
+	border-radius: 5px;
+	background: #835302;
+	margin-top: -2px;
+	margin-bottom: -2px;
+}
+QSlider#music_time_slider::handle:hover
+{
+	background: white;
+}
+/*音量滑动条*/
+QSlider#volume_slider::groove
+{
+	background:white;
+	height:4px;
+	border-radius: 2px;
+}
+
+QSlider#volume_slider::sub-page
+{
+	background-color: #e52d28;
+	border-radius: 2px;
+}
+
+QSlider#volume_slider::add-page
+{
+	background-color: #df9a8d;
+	border-radius: 2px;
+}
+
+QSlider#volume_slider::handle
+{
+	height: 8px;
+	width: 8px;
+	border-radius: 4px;
+	background: #a70000;
+	margin-top: -2px;
+	margin-bottom: -2px;
+}
+QSlider#volume_slider::handle:hover
+{
+	background: white;
+}
+
+/*播放栏*/
+
+
+
+/*图标*/
+/*标题栏*/
+#close_btn{
+	border-image: url(:/title/tools/resource/bg/icon/fonts.google/title/close.png);
+}
+#max_btn{
+	border-image: url(:/title/tools/resource/bg/icon/fonts.google/title/max.png);
+}
+#min_btn{
+	border-image: url(:/title/tools/resource/bg/icon/fonts.google/title/min.png);
+}
+#settings_btn{
+	border-image: url(:/title/tools/resource/bg/icon/fonts.google/title/setting.png);
+}
+#user_btn{
+	border-image: url(:/title/tools/resource/bg/icon/fonts.google/title/qr.png);
+}
+#like_btn{
+	border-image: url(:/play/tools/resource/bg/icon/fonts.google/play/not_like.png);
+}
+#last_btn{
+	border-image: url(:/play/tools/resource/bg/icon/fonts.google/play/skip_previous.png);
+}
+#play_btn{
+	border-image: url(:/play/tools/resource/bg/icon/fonts.google/play/play.png);
+}
+#next_btn{
+	border-image: url(:/play/tools/resource/bg/icon/fonts.google/play/skip_next.png);
+}
+#order_btn{
+	border-image: url(:/play/tools/resource/bg/icon/fonts.google/play/repeat_order.png);
+}
+#volume_btn{
+	border-image: url(:/play/tools/resource/bg/icon/fonts.google/play/volume_2.png);
+}
+#mini_btn{
+	border-image: url(:/play/tools/resource/bg/icon/fonts.google/play/subpage.png);
+}
+#comments_btn{
+	border-image: url(:/play/tools/resource/bg/icon/fonts.google/play/comment.png);
+}
+#download_btn{
+	border-image: url(:/play/tools/resource/bg/icon/fonts.google/play/download.png);
+}
+/*图标*/
