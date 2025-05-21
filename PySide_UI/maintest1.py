@@ -488,12 +488,13 @@ class MyForm(QWidget, main1.Ui_main_music):
         # 滑块按钮按下，设置滑块至不在实时更新
         val = self.music_time_slider.value()
         self.play_at_music(val)
-        # print(val)
+        return
 
     def showFullScreen(self):
         # 全屏展示时将当前歌词滚动至中心
         super().showFullScreen()
-        self.scroll_lrc_to_center(self.lyric_index)
+        index = self.data['lrc']['last_lyric_index']
+        self.scroll_lrc_to_center(index)
         pass
 
     def load_music(self, music_id: str):
@@ -592,7 +593,7 @@ class MyForm(QWidget, main1.Ui_main_music):
             for item in self.data['lrc']['lyric']:
                 label = QLabel()
                 label.setStyleSheet(self.lrc_stylesheet)
-                label.setAlignment(Qt.AlignCenter)
+                label.setAlignment(Qt.AlignmentFlag.AlignCenter)
                 label.setWordWrap(True)
                 label.setMinimumWidth(300)
                 label.setMinimumHeight(40)
@@ -614,7 +615,7 @@ class MyForm(QWidget, main1.Ui_main_music):
             # 设置暂无歌词
             label = QLabel()
             label.setStyleSheet(self.lrc_stylesheet)
-            label.setAlignment(Qt.AlignCenter)
+            label.setAlignment(Qt.AlignmentFlag.AlignCenter)
             label.setWordWrap(True)
             label.setMinimumWidth(300)
             label.setMinimumHeight(40)
@@ -887,6 +888,7 @@ class MyForm(QWidget, main1.Ui_main_music):
             self.set_mini_page()
             self.mini_page.mini_page_close.connect(self.close_mini_page)
             self.mini_page.play.connect(self.auto_play)
+            self.mini_page.play_at.connect(self.play_at_music)
         else:
             self.mini_page.close()
         return

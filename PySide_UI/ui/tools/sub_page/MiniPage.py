@@ -10,6 +10,7 @@ from PySide_UI.ui.tools.sub_ui.mini_page import Ui_mini_page
 class MiniPage(QWidget, Ui_mini_page):
     mini_page_close = Signal()
     play = Signal()
+    play_at = Signal(int)
 
     def __init__(self):
         super().__init__()
@@ -23,6 +24,13 @@ class MiniPage(QWidget, Ui_mini_page):
 
         self.pos_x = -1
         self.pos_y = -1
+
+    @Slot()
+    def on_music_time_slider_sliderReleased(self):
+        # 滑块按钮按下，设置滑块至不在实时更新
+        val = self.music_time_slider.value()
+        self.play_at.emit(val)
+        return
 
     @Slot()
     def on_play_btn_clicked(self):
