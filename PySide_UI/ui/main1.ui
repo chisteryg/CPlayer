@@ -176,8 +176,13 @@ QScrollArea{
 	font-size: 16px;
 }
 /*进度滑动条*/
+QSlider#music_time_slider{
+	margin: 3px;
+}
 QSlider#music_time_slider::groove 
 {
+	padding-left: -2px;
+	padding-right: -2px; 
 	background:white;
 	height:6px;
 	border-radius: 3px;
