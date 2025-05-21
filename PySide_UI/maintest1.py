@@ -825,6 +825,10 @@ class MyForm(QWidget, main1.Ui_main_music):
 
     @Slot()
     def on_play_btn_clicked(self):
+        self.auto_play()
+        return
+
+    def auto_play(self):
         if self.data['play_status'] == self.playing:
             self.pause_music()
         elif self.data['play_status'] == self.pause or self.data['play_status'] == self.stop:
@@ -882,6 +886,7 @@ class MyForm(QWidget, main1.Ui_main_music):
             self.mini_page = MiniPage()
             self.set_mini_page()
             self.mini_page.mini_page_close.connect(self.close_mini_page)
+            self.mini_page.play.connect(self.auto_play)
         else:
             self.mini_page.close()
         return

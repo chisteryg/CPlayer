@@ -1,6 +1,6 @@
 import sys
 
-from PySide6.QtCore import Qt, Signal
+from PySide6.QtCore import Qt, Signal, Slot
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QWidget, QApplication
 
@@ -9,6 +9,7 @@ from PySide_UI.ui.tools.sub_ui.mini_page import Ui_mini_page
 
 class MiniPage(QWidget, Ui_mini_page):
     mini_page_close = Signal()
+    play = Signal()
 
     def __init__(self):
         super().__init__()
@@ -22,6 +23,11 @@ class MiniPage(QWidget, Ui_mini_page):
 
         self.pos_x = -1
         self.pos_y = -1
+
+    @Slot()
+    def on_play_btn_clicked(self):
+        self.play.emit()
+        return
 
     def set_mini_page_time_maximum(self, maximum: int = 100):
         # 设置滑动条最大值
