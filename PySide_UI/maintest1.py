@@ -747,6 +747,7 @@ class MyForm(QWidget, main1.Ui_main_music):
             self.data['timer'].start()
             # 设置图标为暂停
             self.play_btn.setStyleSheet(self.icon_pause)
+            self.set_mini_page_play_icon(self.icon_pause)
         return
 
     def play_at_music(self, position: int):
@@ -760,6 +761,7 @@ class MyForm(QWidget, main1.Ui_main_music):
             self.data['timer'].start()
             # 设置图标为暂停
             self.play_btn.setStyleSheet(self.icon_pause)
+            self.set_mini_page_play_icon(self.icon_pause)
         return
 
     def stop_music(self):
@@ -767,7 +769,6 @@ class MyForm(QWidget, main1.Ui_main_music):
             # 如果当前处于播放或暂停状态，停止播放音乐
             if self.data['timer'].isActive():
                 self.data['timer'].stop()
-                # self.data['duration'] = 0
             # 停止播放
             self.player.stop()
             self.data['play_status'] = self.stop
@@ -783,6 +784,7 @@ class MyForm(QWidget, main1.Ui_main_music):
         self.lyric_scroll_area.verticalScrollBar().setValue(0)
         # 设置图标为播放
         self.play_btn.setStyleSheet(self.icon_play)
+        self.set_mini_page_play_icon(self.icon_play)
 
         return
 
@@ -799,6 +801,8 @@ class MyForm(QWidget, main1.Ui_main_music):
                 self.data['play_status'] = self.pause
             # 设置图标为播放
             self.play_btn.setStyleSheet(self.icon_play)
+            self.set_mini_page_play_icon(self.icon_play)
+
             return
         pass
 
@@ -932,7 +936,6 @@ class MyForm(QWidget, main1.Ui_main_music):
         # 设置播放音乐图标
         if self.mini_page != None:
             self.mini_page.set_mini_page_play_icon(qss)
-
         return
 
     def close_mini_page(self):
