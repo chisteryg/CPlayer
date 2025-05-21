@@ -21,6 +21,27 @@ class MiniPage(QWidget, Ui_mini_page):
         self.pos_x = -1
         self.pos_y = -1
 
+    def set_mini_page_time_maximum(self, maximum: int = 100):
+        # 设置滑动条最大值
+        self.music_time_slider.setMaximum(maximum)
+        return
+
+    def set_mini_page_time_value(self, value: int = 100):
+        # 设置滑动条当前值
+        self.music_time_slider.setValue(value)
+        return
+
+    def set_mini_page_time(self, time: str = ''):
+        # 设置当前时间
+        self.now_time_lab.setText(time)
+        return
+
+    def set_mini_page_lrc(self, lrc: str = ''):
+        # 设置当前歌词
+        self.lrc_lab.setText(lrc)
+        return
+
+
     def mousePressEvent(self, event):
         # 记录点击时xy位置
         self.pos_x = event.x()

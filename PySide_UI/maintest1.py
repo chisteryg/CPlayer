@@ -11,6 +11,7 @@ from PySide_UI.tools.player.palyer import MusicPlayer
 from PySide_UI.ui import main1
 from PySide_UI.ui.tools.requester_thread import *
 from PySide_UI.ui.tools.sub_page.Message import MessagePage
+from PySide_UI.ui.tools.sub_page.MiniPage import MiniPage
 from PySide_UI.ui.tools.sub_page.Playlist import PlaylistPage
 from PySide_UI.ui.tools.sub_page.RecommendMusic import RecommendMusicPage
 from PySide_UI.ui.tools.sub_page.RecommendPlaylist import RecommendPlaylistPage
@@ -92,6 +93,7 @@ class MyForm(QWidget, main1.Ui_main_music):
         # 子页面
         self.subpage = None
         self.settings_page = None
+        self.mini_page = None
         self.recommend_playlist_btn.click()
 
         # 子线程
@@ -866,6 +868,69 @@ class MyForm(QWidget, main1.Ui_main_music):
 
 
     '''↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 播放子页面相关方法 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓'''
+
+    @Slot()
+    def on_mini_btn_clicked(self):
+        if self.mini_page == None:
+            self.mini_page = MiniPage()
+            self.set_mini_page()
+        else:
+            self.mini_page.close()
+            self.mini_page = None
+        return
+
+    def set_mini_page(self):
+        # 初始化子页面内容
+        if self.mini_page != None:
+            maximum = self.music_time_slider.maximum()
+            self.set_mini_page_time_maximum(maximum)
+
+            value = self.music_time_slider.value()
+            self.set_mini_page_time_value(value)
+
+            now_time = self.now_time_lab.text()
+            self.set_mini_page_time(now_time)
+
+
+            '''
+            'lrc': {
+                'lyric': [],
+                'need_screen': False,
+                'lyric_index': 0,
+                'last_lyric_index': -1,
+            },
+            '''
+
+            lrc = None
+            index = self.data['lrc']['last_lyric_index']
+            if self.data['lrc']['lyric'] != [] and index >= 0 and index < len(self.data['lrc']['lyric']):
+                lrc = self.data['lrc']['lyric'][index]['lrc']
+            self.set_mini_page_lrc(lrc)
+        return
+
+    def set_mini_page_time_maximum(self, maximum: int = 100):
+        # 设置子页面滑动条最大值
+        if self.mini_page != None:
+            self.mini_page.set_mini_page_time_maximum(maximum)
+        return
+
+    def set_mini_page_time_value(self, value: int = 100):
+        # 设置子页面滑动条当前值
+        if self.mini_page != None:
+            self.mini_page.set_mini_page_time_value(value)
+        return
+
+    def set_mini_page_time(self, time: str = ''):
+        # 设置子页面当前时间
+        if self.mini_page != None:
+            self.mini_page.set_mini_page_time(time)
+        return
+
+    def set_mini_page_lrc(self, lrc: str = ''):
+        # 设置子页面当前歌词
+        if self.mini_page != None:
+            self.mini_page.set_mini_page_lrc(lrc)
+        return
 
 
 
