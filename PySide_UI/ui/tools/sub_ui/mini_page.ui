@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>settings</class>
- <widget class="QWidget" name="settings">
+ <class>mini_page</class>
+ <widget class="QWidget" name="mini_page">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -307,7 +307,7 @@ QSlider#music_time_slider::handle:hover
   <connection>
    <sender>close_btn</sender>
    <signal>clicked()</signal>
-   <receiver>settings</receiver>
+   <receiver>mini_page</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
