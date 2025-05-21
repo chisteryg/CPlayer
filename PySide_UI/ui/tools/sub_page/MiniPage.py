@@ -1,21 +1,23 @@
 import sys
 
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, Signal
+from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QWidget, QApplication
 
 from PySide_UI.ui.tools.sub_ui.mini_page import Ui_mini_page
 
 
 class MiniPage(QWidget, Ui_mini_page):
+    mini_page_close = Signal()
 
     def __init__(self):
         super().__init__()
-        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)  # 取消注释，启用透明背景
-        self.setWindowFlags(Qt.WindowType.WindowStaysOnTopHint)  # 置顶
-        self.setWindowFlags(Qt.WindowType.FramelessWindowHint)  # 保留无边框设置
-        self.setAttribute(Qt.WidgetAttribute.WA_NoSystemBackground, False)
-
         self.setupUi(self)
+        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)  # 取消注释，启用透明背景
+        self.setAttribute(Qt.WidgetAttribute.WA_NoSystemBackground, False)
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.WindowStaysOnTopHint)  # 保留无边框设置，置顶
+
+        self.setWindowTitle('CPlayer-Mini-Page')
         self.show()
 
         self.pos_x = -1
@@ -39,6 +41,16 @@ class MiniPage(QWidget, Ui_mini_page):
     def set_mini_page_lrc(self, lrc: str = ''):
         # 设置当前歌词
         self.lrc_lab.setText(lrc)
+        return
+
+    def set_mini_page_play_icon(self, qss: str = ''):
+        # 设置图标
+        self.play_btn.setStyleSheet(qss)
+        return
+
+    def close(self):
+        self.mini_page_close.emit()
+        super().close()
         return
 
 

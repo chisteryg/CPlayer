@@ -1,7 +1,7 @@
 import json
 import os
 
-from PySide6.QtGui import Qt
+from PySide6.QtGui import Qt, QIcon
 from PySide6.QtCore import Slot, QTimer, Qt, QPoint, QPropertyAnimation, QEasingCurve
 from PySide6.QtGui import QFontDatabase
 from PySide6.QtWidgets import *
@@ -664,6 +664,7 @@ class MyForm(QWidget, main1.Ui_main_music):
         if label is not None:
             if label.text() != '':
                 label.setStyleSheet(self.lrc_stylesheet_highlight)
+                self.set_mini_page_lrc(label.text())
         # 设置上一行歌词下标为当前下标
         self.data['lrc']['last_lyric_index'] = index
         return
@@ -726,9 +727,11 @@ class MyForm(QWidget, main1.Ui_main_music):
         # 设置滑动条
         self.data['now'] += 200
         self.music_time_slider.setValue(self.data['now'])
+        self.set_mini_page_time_value(self.data['now'])
         # 设置时间标签
         now = self.trans_time(self.data['now'])
         self.now_time_lab.setText(f'{now}')
+        self.set_mini_page_time(f'{now}')
         # 判断是否滚动歌词
         self.scroll_lrc()
 
@@ -874,9 +877,9 @@ class MyForm(QWidget, main1.Ui_main_music):
         if self.mini_page == None:
             self.mini_page = MiniPage()
             self.set_mini_page()
+            self.mini_page.mini_page_close.connect(self.close_mini_page)
         else:
             self.mini_page.close()
-            self.mini_page = None
         return
 
     def set_mini_page(self):
@@ -891,21 +894,14 @@ class MyForm(QWidget, main1.Ui_main_music):
             now_time = self.now_time_lab.text()
             self.set_mini_page_time(now_time)
 
-
-            '''
-            'lrc': {
-                'lyric': [],
-                'need_screen': False,
-                'lyric_index': 0,
-                'last_lyric_index': -1,
-            },
-            '''
-
-            lrc = None
+            lrc = ''
             index = self.data['lrc']['last_lyric_index']
             if self.data['lrc']['lyric'] != [] and index >= 0 and index < len(self.data['lrc']['lyric']):
                 lrc = self.data['lrc']['lyric'][index]['lrc']
             self.set_mini_page_lrc(lrc)
+
+            qss = self.play_btn.styleSheet()
+            self.set_mini_page_play_icon(qss)
         return
 
     def set_mini_page_time_maximum(self, maximum: int = 100):
@@ -930,6 +926,19 @@ class MyForm(QWidget, main1.Ui_main_music):
         # 设置子页面当前歌词
         if self.mini_page != None:
             self.mini_page.set_mini_page_lrc(lrc)
+        return
+
+    def set_mini_page_play_icon(self, qss: str = ''):
+        # 设置播放音乐图标
+        if self.mini_page != None:
+            self.mini_page.set_mini_page_play_icon(qss)
+
+        return
+
+    def close_mini_page(self):
+        # 删除子页面
+        if self.mini_page != None:
+            self.mini_page = None
         return
 
 
