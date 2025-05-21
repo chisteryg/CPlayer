@@ -25,11 +25,11 @@ class Ui_mini_page(object):
     def setupUi(self, mini_page):
         if not mini_page.objectName():
             mini_page.setObjectName(u"mini_page")
-        mini_page.resize(450, 200)
-        mini_page.setMinimumSize(QSize(450, 200))
-        mini_page.setMaximumSize(QSize(450, 200))
-        mini_page.setStyleSheet(u"QWidget#settings{\n"
-"	background-color: rgba(255,228,196, 0.4);\n"
+        mini_page.resize(450, 180)
+        mini_page.setMinimumSize(QSize(450, 180))
+        mini_page.setMaximumSize(QSize(450, 180))
+        mini_page.setStyleSheet(u"QWidget#mini_page{\n"
+"	background-color: rgba(119,136,153, 0.6);\n"
 "}\n"
 "*{\n"
 "	background-color: transparent;\n"
@@ -48,7 +48,7 @@ class Ui_mini_page(object):
 "}\n"
 "/*\u65f6\u95f4\u6807\u7b7e*/\n"
 "[time]{\n"
-"	color: #DE76A3;\n"
+"	color: #CF467F;\n"
 "	font-size: 16px;\n"
 "}\n"
 "/*\u6309\u94ae\u6837\u5f0f*/\n"
@@ -106,7 +106,7 @@ class Ui_mini_page(object):
 "	background: white;\n"
 "}")
         self.verticalLayout = QVBoxLayout(mini_page)
-        self.verticalLayout.setSpacing(10)
+        self.verticalLayout.setSpacing(6)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(10, 10, 10, 12)
         self.horizontalLayout = QHBoxLayout()
