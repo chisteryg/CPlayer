@@ -14,7 +14,7 @@ class OneMusic(QWidget, Ui_music):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # 设置顶层窗口qwidget样式生效
-        self.setAttribute(Qt.WA_StyledBackground)
+        self.setAttribute(Qt.WidgetAttribute.WA_StyledBackground)
         self.setupUi(self)
 
 

@@ -849,12 +849,11 @@ class MyForm(QWidget, main1.Ui_main_music):
     @Slot()
     def on_download_btn_clicked(self):
         # 音乐下载按钮
-        # print('下载按钮')
         if self.data['music_id'] is not None and self.data['music_loaded']:
             if self.save_thread is None:
-                print(self.cloud, self.data['music_id'])
                 self.save_thread = SaveSong(self.cloud, self.data['music_id'])
                 self.save_thread.save_song_finished.connect(self.save_finish_msg)
+                self.save_thread.finished.connect(self.save_thread.deleteLater)
                 self.save_thread.finished.connect(self.delete_save_song_thread)
                 self.save_thread.start()
             else:
@@ -871,8 +870,6 @@ class MyForm(QWidget, main1.Ui_main_music):
 
     def delete_save_song_thread(self):
         # 清空保存线程
-        self.save_thread.setParent(None)
-        self.save_thread.deleteLater()
         self.save_thread = None
         return
 
