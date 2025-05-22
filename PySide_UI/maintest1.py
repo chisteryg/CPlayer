@@ -57,6 +57,7 @@ class MyForm(QWidget, main1.Ui_main_music):
             'duration': 0,  # 总时长
 
             # 音乐播放情况
+            'music_list': [],
             'music_loaded': False,
             'music_id': None,
             'play_status': self.stop,
@@ -274,6 +275,11 @@ class MyForm(QWidget, main1.Ui_main_music):
     def play_recommend_music(self, music_id: str):
         # 播放推荐音乐
         self.load_music(music_id)
+        # 设置当前播放列表为每日推荐
+        music_list = []
+        for key in self.data['recommend_music_info'].keys():
+            music_list.append(self.data['recommend_music_info'][key]['id'])
+        self.data['music_list'] = music_list
         return
 
     '''↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 每日推荐音乐相关方法 ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑'''
@@ -710,7 +716,7 @@ class MyForm(QWidget, main1.Ui_main_music):
         self.scroll_animation.setDuration(duration)
         self.scroll_animation.setStartValue(scroll_bar.value())
         self.scroll_animation.setEndValue(target_value)
-        self.scroll_animation.setEasingCurve(QEasingCurve.OutCubic)
+        self.scroll_animation.setEasingCurve(QEasingCurve.Type.OutCubic)
         # 确保动画完成后释放资源
         self.scroll_animation.finished.connect(
             lambda: self.scroll_animation.deleteLater()
@@ -766,6 +772,23 @@ class MyForm(QWidget, main1.Ui_main_music):
             self.set_mini_page_play_icon(self.icon_pause)
         return
 
+    def pause_music(self):
+        # 播放或暂停音乐
+        if self.data['music_loaded']:
+            # 加载过音乐才可进行
+            if self.data['play_status'] == self.playing:
+                # 如果当前为播放中，暂停播放
+                # 暂停计时器
+                self.data['timer'].stop()
+                # 停止播放
+                self.player.pause()
+                self.data['play_status'] = self.pause
+            # 设置图标为播放
+            self.play_btn.setStyleSheet(self.icon_play)
+            self.set_mini_page_play_icon(self.icon_play)
+
+        return
+
     def stop_music(self):
         if self.data['play_status'] == self.playing or self.data['play_status'] == self.pause:
             # 如果当前处于播放或暂停状态，停止播放音乐
@@ -787,26 +810,38 @@ class MyForm(QWidget, main1.Ui_main_music):
         # 设置图标为播放
         self.play_btn.setStyleSheet(self.icon_play)
         self.set_mini_page_play_icon(self.icon_play)
-
         return
 
-    def pause_music(self):
-        # 播放或暂停音乐
-        if self.data['music_loaded']:
-            # 加载过音乐才可进行
-            if self.data['play_status'] == self.playing:
-                # 如果当前为播放中，暂停播放
-                # 暂停计时器
-                self.data['timer'].stop()
-                # 停止播放
-                self.player.pause()
-                self.data['play_status'] = self.pause
-            # 设置图标为播放
-            self.play_btn.setStyleSheet(self.icon_play)
-            self.set_mini_page_play_icon(self.icon_play)
+    def next_music(self):
+        # 播放下一首音乐
+        if self.data['music_list'] != []:
+            # 播放列表不为空
+            index = 0
+            music_id = self.data['music_id']
+            if music_id in self.data['music_list']:
+                # 当前id在播放列表中
+                # 列表到底末尾自动置零
+                index = (self.data['music_list'].index(music_id) + 1) % len(self.data['music_list'])
+            # 播放协议书
+            self.load_music(self.data['music_list'][index])
+        return
 
-            return
-        pass
+    def prev_music(self):
+        # 播放下一首音乐
+        if self.data['music_list'] != []:
+            # 播放列表不为空
+            index = 0
+            music_id = self.data['music_id']
+            if music_id in self.data['music_list']:
+                # 当前id在播放列表中
+                # 列表到底末尾自动置零
+                index = (self.data['music_list'].index(music_id) - 1) % len(self.data['music_list'])
+                index = index if index >= 0 else len(self.data['music_list']) - 1
+            # 播放协议书
+            self.load_music(self.data['music_list'][index])
+        return
+
+
 
     @Slot()
     def on_like_btn_clicked(self):
@@ -827,7 +862,20 @@ class MyForm(QWidget, main1.Ui_main_music):
 
     @Slot()
     def on_play_btn_clicked(self):
+        # 播放按钮
         self.auto_play()
+        return
+
+    @Slot()
+    def on_next_btn_clicked(self):
+        # 上一首按钮
+        self.next_music()
+        return
+
+    @Slot()
+    def on_last_btn_clicked(self):
+        # 下一首按钮
+        self.prev_music()
         return
 
     def auto_play(self):
