@@ -58,6 +58,7 @@ class MyForm(QWidget, main1.Ui_main_music):
 
             # 音乐播放情况
             'music_list': [],
+            'music_list_type': None,
             'music_loaded': False,
             'music_id': None,
             'play_status': self.stop,
@@ -276,10 +277,13 @@ class MyForm(QWidget, main1.Ui_main_music):
         # 播放推荐音乐
         self.load_music(music_id)
         # 设置当前播放列表为每日推荐
-        music_list = []
-        for key in self.data['recommend_music_info'].keys():
-            music_list.append(self.data['recommend_music_info'][key]['id'])
-        self.data['music_list'] = music_list
+        if self.data['music_list_type'] != self.music_list_recommend:
+            # 当前播放列表类型不是推荐音乐
+            music_list = []
+            for key in self.data['recommend_music_info'].keys():
+                music_list.append(self.data['recommend_music_info'][key]['id'])
+            self.data['music_list'] = music_list
+            self.data['music_list_type'] = self.music_list_recommend
         return
 
     '''↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 每日推荐音乐相关方法 ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑'''
@@ -288,7 +292,7 @@ class MyForm(QWidget, main1.Ui_main_music):
 
     @Slot()
     def on_search_btn_toggled(self):
-        # 每日推荐歌单按钮被点击，加载歌单
+        # 搜索按钮被点击，加载歌单
         if self.search_btn.isChecked():
             # 如果是选中状态
             # 切换至页面0
@@ -319,8 +323,8 @@ class MyForm(QWidget, main1.Ui_main_music):
             page = self.data['search_music_info'][keywords]['page'] + 1
             if page <= self.data['search_music_info'][keywords]['max_page']:
                 # 当前页数在范围内
-                pprint(keywords)
-                pprint(page)
+                # pprint(keywords)
+                # pprint(page)
                 # 加载下一页搜索内容
                 self.load_search_music(keywords=keywords, page=page)
         return
@@ -334,7 +338,7 @@ class MyForm(QWidget, main1.Ui_main_music):
             # 提取内容并加载
             search_music_info = {}
             search_music_info['data'] = self.data['search_music_info'][keywords]
-            pprint(search_music_info)
+            # pprint(search_music_info)
             self.add_search_music(search_music_info)
             return
 
@@ -363,11 +367,23 @@ class MyForm(QWidget, main1.Ui_main_music):
             self.data['search_music_info'][keywords] = search_music_info
         self.data['keywords'] = keywords  # 更新搜索关键字
 
+
+
         return
 
     def play_search_music(self, music_id: str):
         # 播放搜索内容中的音乐
         self.load_music(music_id)
+
+        # 设置当前播放列表为搜索音乐
+        music_list = []
+        keywords = self.data['keywords']
+        list1 = self.data['search_music_info'][keywords]['songs_detail']
+        for key in list1.keys():
+            for key2 in list1[key].keys():
+                music_list.append(list1[key][key2]['id'])
+        self.data['music_list'] = music_list
+        self.data['music_list_type'] = self.music_list_search
         return
 
     '''↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 搜索音乐相关方法 ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑'''
@@ -468,6 +484,13 @@ class MyForm(QWidget, main1.Ui_main_music):
     def play_playlist_music(self, music_id: str):
         # 播放歌单音乐
         self.load_music(music_id)
+
+        # 设置当前播放列表为歌单音乐
+        music_list = []
+        playlist_id = self.data['playlist_id']
+        music_list = self.data['playlist_info'][playlist_id]['trackIds']
+        self.data['music_list'] = music_list
+        self.data['music_list_type'] = self.music_list_playlist
         return
 
     '''↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 歌单展示相关方法 ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑'''
@@ -1145,6 +1168,11 @@ class MyForm(QWidget, main1.Ui_main_music):
     playing = 1
     pause = 2
     stop = 3
+
+    music_list_recommend = 1
+    music_list_search = 2
+    music_list_playlist = 3
+
 
     # 图标
     icon_volume_0 = 'border-image: url(:/play/tools/resource/bg/icon/play/volume_0.png);'
