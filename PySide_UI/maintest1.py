@@ -64,7 +64,7 @@ class MyForm(QWidget, main1.Ui_main_music):
             'lrc': {
                 'lyric': [],
                 'need_screen': False,
-                'lyric_index': 0,
+                # 'lyric_index': 0,
                 'last_lyric_index': -1,
             },
 
@@ -495,7 +495,7 @@ class MyForm(QWidget, main1.Ui_main_music):
         super().showFullScreen()
         index = self.data['lrc']['last_lyric_index']
         self.scroll_lrc_to_center(index)
-        pass
+        return
 
     def load_music(self, music_id: str):
         # 启动下载线程
@@ -586,7 +586,7 @@ class MyForm(QWidget, main1.Ui_main_music):
                     lyric_list.append({'time': time1, 'lrc': lrc})
             # 储存歌词列表并将当前歌词下标设置为1
             self.data['lrc']['lyric'] = lyric_list
-            self.data['lrc']['lyric_index'] = 0
+            # self.data['lrc']['lyric_index'] = 0
 
             # 插入歌词
             i = 0
@@ -632,7 +632,7 @@ class MyForm(QWidget, main1.Ui_main_music):
                 item.deleteLater()
         # 清空已存储的歌词内容
         self.data['lrc']['lyric'] = []
-        self.data['lrc']['lyric_index'] = 0
+        # self.data['lrc']['lyric_index'] = 0
 
     def scroll_lrc(self):
         # 判断是否需要滚动歌词
@@ -780,8 +780,8 @@ class MyForm(QWidget, main1.Ui_main_music):
         # 当前时间设置为0
         self.data['now'] = 0
         # 重置歌词样式并滚动到开头
-        self.reset_lrc_style(self.data['lrc']['lyric_index'] - 1)
-        self.data['lrc']['lyric_index'] = 0
+        self.reset_lrc_style(self.data['lrc']['last_lyric_index'])
+        self.data['lrc']['last_lyric_index'] = 0
         self.lyric_scroll_area.verticalScrollBar().setValue(0)
         # 设置图标为播放
         self.play_btn.setStyleSheet(self.icon_play)

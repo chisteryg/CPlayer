@@ -25,6 +25,10 @@ class MiniPage(QWidget, Ui_mini_page):
         self.pos_x = -1
         self.pos_y = -1
 
+    @Slot(int)
+    def on_music_time_slider_valueChanged(self, val):
+        print(f'val:{val}, max:{self.music_time_slider.maximum()}')
+
     @Slot()
     def on_music_time_slider_sliderReleased(self):
         # 滑块按钮按下，设置滑块至不在实时更新
