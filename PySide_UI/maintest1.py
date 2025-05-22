@@ -855,7 +855,7 @@ class MyForm(QWidget, main1.Ui_main_music):
                 print(self.cloud, self.data['music_id'])
                 self.save_thread = SaveSong(self.cloud, self.data['music_id'])
                 self.save_thread.save_song_finished.connect(self.save_finish_msg)
-                self.save_thread.finished.connect(self.save_thread.deleteLater)
+                self.save_thread.finished.connect(self.delete_save_song_thread)
                 self.save_thread.start()
             else:
                 self.msg_page = MessagePage('无法下载', '音乐下载中，请等待下载完成')
