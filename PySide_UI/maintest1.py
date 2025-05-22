@@ -549,6 +549,7 @@ class MyForm(QWidget, main1.Ui_main_music):
         max_value = music_info['song_detail']['dt']
         self.data['duration'] = max_value
         self.music_time_slider.setMaximum(max_value)
+        self.set_mini_page_time_maximum(max_value)
         # 设置最大时间
         max_time = self.trans_time(music_info['song_detail']['dt'])
         self.all_time_lab.setText(max_time)
