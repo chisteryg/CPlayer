@@ -1173,6 +1173,12 @@ class MyForm(QWidget, main1.Ui_main_music):
     music_list_search = 2
     music_list_playlist = 3
 
+    repeat_order = 1
+    repeat_one = 2
+    repeat_random = 3
+
+
+
 
     # 图标
     icon_volume_0 = 'border-image: url(:/play/tools/resource/bg/icon/play/volume_0.png);'
