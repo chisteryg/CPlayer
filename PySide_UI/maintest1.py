@@ -42,14 +42,16 @@ class MyForm(QWidget, main1.Ui_main_music):
         self.loadFont()
         # # 设置全局qss
         # self.set_qss()
-        # 加载设置
-        self.set_settings()
+
 
         # 音乐信息
         self.data = {
-            # 用户登录情况
-            'is_login': False,
-            'user_info': None,
+            # 设置内容
+            'settings': {
+                "cookies": "",
+                "save_path": "C:/",
+                "repeat": self.repeat_order
+            },
 
             # 计时器
             'timer': QTimer(),  # 定时器对象
@@ -66,7 +68,6 @@ class MyForm(QWidget, main1.Ui_main_music):
             'lrc': {
                 'lyric': [],
                 'need_screen': False,
-                # 'lyric_index': 0,
                 'last_lyric_index': -1,
             },
 
@@ -92,6 +93,9 @@ class MyForm(QWidget, main1.Ui_main_music):
         self.data['timer'].setTimerType(Qt.TimerType.PreciseTimer)
         self.data['timer'].timeout.connect(self.add_time)
 
+        # 加载设置
+        self.set_settings()
+
         # 子页面
         self.subpage = None
         self.settings_page = None
@@ -110,6 +114,11 @@ class MyForm(QWidget, main1.Ui_main_music):
         # 调整大小标志
         self.resize_flag = False
 
+        return
+
+    def __del__(self):
+        # 退出时保存设置
+        self.save_settings()
         return
 
     def remove_subpage(self):
@@ -366,8 +375,6 @@ class MyForm(QWidget, main1.Ui_main_music):
             # 搜索内容未加载，将内容添加至data
             self.data['search_music_info'][keywords] = search_music_info
         self.data['keywords'] = keywords  # 更新搜索关键字
-
-
 
         return
 
@@ -864,8 +871,6 @@ class MyForm(QWidget, main1.Ui_main_music):
             self.load_music(self.data['music_list'][index])
         return
 
-
-
     @Slot()
     def on_like_btn_clicked(self):
         # self.stop_music()
@@ -934,7 +939,6 @@ class MyForm(QWidget, main1.Ui_main_music):
             self.msg_page = MessagePage('无法下载', '未加载音乐')
         return
 
-
     def save_finish_msg(self, data: dict):
         save_path = data['music_save_path']
         self.msg_page = MessagePage('下载完成', f'音乐已保存至：{save_path}')
@@ -946,7 +950,6 @@ class MyForm(QWidget, main1.Ui_main_music):
         return
 
     '''↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 下载音乐相关方法 ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑'''
-
 
     '''↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 播放子页面相关方法 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓'''
 
@@ -1020,10 +1023,7 @@ class MyForm(QWidget, main1.Ui_main_music):
             self.mini_page = None
         return
 
-
-
     '''↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 播放子页面相关方法 ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑'''
-
 
     '''↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 左下角调整大小相关方法 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓'''
 
@@ -1080,25 +1080,38 @@ class MyForm(QWidget, main1.Ui_main_music):
 
     def load_settings(self):
         # 获取设置内容
-
-        settings_data = {
-            "cookies": "",
-            "save_path": "C:/"
+        settings = {
+            'cookies': '',
+            'save_path': 'C:/',
+            'repeat': self.repeat_order
         }
         path = self.settings_dir + 'settings.json'
         if os.path.exists(path):
             # 文件存在
+            settings_1 = ''
             with open(path, 'r', encoding='utf-8') as f:
-                settings_data = json.loads(f.read())
-        return settings_data
+                settings_1 = json.loads(f.read())
+            try:
+                self.data['settings']['cookies'] = settings_1['cookies']
+                settings['cookies'] = settings_1['cookies']
+                self.data['settings']['save_path'] = settings_1['save_path']
+                settings['save_path'] = settings_1['save_path']
+                self.data['settings']['repeat'] = settings_1['repeat']
+                settings['repeat'] = settings_1['repeat']
+            except Exception as e:
+                print(e)
+        return settings
 
     def set_settings(self):
-        data = self.load_settings()
-        # 加载设置
-        if 'cookies' in data:
-            self.cloud.set_cookies(data['cookies'])
-        if 'save_path' in data:
-            self.cloud.set_save_path(data['save_path'])
+        try:
+            data = self.load_settings()
+            # 加载设置
+            if 'cookies' in data:
+                self.cloud.set_cookies(data['cookies'])
+            if 'save_path' in data:
+                self.cloud.set_save_path(data['save_path'])
+        except Exception as e:
+            print(e)
         return
 
     def save_settings(self, data: dict = None):
@@ -1108,7 +1121,6 @@ class MyForm(QWidget, main1.Ui_main_music):
         path = self.settings_dir + 'settings.json'
         with open(path, 'w', encoding='utf-8') as f:
             f.write(json.dumps(data, indent=4))
-
         self.set_settings()
         return
 
@@ -1176,9 +1188,6 @@ class MyForm(QWidget, main1.Ui_main_music):
     repeat_order = 1
     repeat_one = 2
     repeat_random = 3
-
-
-
 
     # 图标
     icon_volume_0 = 'border-image: url(:/play/tools/resource/bg/icon/play/volume_0.png);'
