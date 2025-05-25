@@ -1,5 +1,6 @@
 import json
 import os
+import random
 
 from PySide6.QtGui import Qt, QIcon
 from PySide6.QtCore import Slot, QTimer, Qt, QPoint, QPropertyAnimation, QEasingCurve
@@ -849,11 +850,21 @@ class MyForm(QWidget, main1.Ui_main_music):
             # 播放列表不为空
             index = 0
             music_id = self.data['music_id']
-            if music_id in self.data['music_list']:
-                # 当前id在播放列表中
-                # 列表到底末尾自动置零
-                index = (self.data['music_list'].index(music_id) + 1) % len(self.data['music_list'])
-            # 播放协议书
+            if self.data['settings']['repeat'] == self.repeat_order:
+                # 顺序播放
+                if music_id in self.data['music_list']:
+                    # 当前id在播放列表中
+                    # 列表到底末尾自动置零
+                    index = (self.data['music_list'].index(music_id) + 1) % len(self.data['music_list'])
+            elif self.data['settings']['repeat'] == self.repeat_one:
+                # 单曲循环
+                if music_id in self.data['music_list']:
+                    # 当前id在播放列表中
+                    index = self.data['music_list'].index(music_id)
+            elif self.data['settings']['repeat'] == self.repeat_random:
+                # 随机播放
+                index = random.randint(0, len(self.data['music_list']))
+            # 播放
             self.load_music(self.data['music_list'][index])
         return
 
@@ -866,8 +877,18 @@ class MyForm(QWidget, main1.Ui_main_music):
             if music_id in self.data['music_list']:
                 # 当前id在播放列表中
                 # 列表到底末尾自动置零
-                index = (self.data['music_list'].index(music_id) - 1) % len(self.data['music_list'])
-                index = index if index >= 0 else len(self.data['music_list']) - 1
+                if self.data['settings']['repeat'] == self.repeat_order:
+                    # 顺序播放
+                    index = (self.data['music_list'].index(music_id) - 1) % len(self.data['music_list'])
+                    index = index if index >= 0 else len(self.data['music_list']) - 1
+                elif self.data['settings']['repeat'] == self.repeat_one:
+                    # 单曲循环
+                    if music_id in self.data['music_list']:
+                        # 当前id在播放列表中
+                        index = self.data['music_list'].index(music_id)
+                elif self.data['settings']['repeat'] == self.repeat_random:
+                    # 随机播放
+                    index = random.randint(0, len(self.data['music_list']))
             # 播放协议书
             self.load_music(self.data['music_list'][index])
         return
