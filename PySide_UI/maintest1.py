@@ -116,9 +116,10 @@ class MyForm(QWidget, main1.Ui_main_music):
 
         return
 
-    def __del__(self):
+    def close(self):
         # 退出时保存设置
         self.save_settings()
+        super().close()
         return
 
     def remove_subpage(self):
@@ -906,6 +907,23 @@ class MyForm(QWidget, main1.Ui_main_music):
         self.prev_music()
         return
 
+    @Slot()
+    def on_order_btn_clicked(self):
+        # 播放顺序按钮
+        if self.data['settings']['repeat'] == self.repeat_order:
+            # 顺序播放，则设置为单曲循环
+            self.order_btn.setStyleSheet(self.icon_repeat_one)
+            self.data['settings']['repeat'] = self.repeat_one
+        elif self.data['settings']['repeat'] == self.repeat_one:
+            # 单曲循环播放，则设置为随机播放
+            self.order_btn.setStyleSheet(self.icon_repeat_random)
+            self.data['settings']['repeat'] = self.repeat_random
+        elif self.data['settings']['repeat'] == self.repeat_random:
+            # 随机播放，则设置为顺序播放
+            self.order_btn.setStyleSheet(self.icon_repeat_order)
+            self.data['settings']['repeat'] = self.repeat_order
+        return
+
     def auto_play(self):
         if self.data['play_status'] == self.playing:
             self.pause_music()
@@ -1100,6 +1118,17 @@ class MyForm(QWidget, main1.Ui_main_music):
                 settings['repeat'] = settings_1['repeat']
             except Exception as e:
                 print(e)
+
+        # 设置顺序图标
+        if self.data['settings']['repeat'] == self.repeat_order:
+            # 顺序播放
+            self.order_btn.setStyleSheet(self.icon_repeat_order)
+        elif self.data['settings']['repeat'] == self.repeat_one:
+            # 单曲循环播放
+            self.order_btn.setStyleSheet(self.icon_repeat_one)
+        elif self.data['settings']['repeat'] == self.repeat_random:
+            # 随机播放
+            self.order_btn.setStyleSheet(self.icon_repeat_random)
         return settings
 
     def set_settings(self):
@@ -1116,6 +1145,11 @@ class MyForm(QWidget, main1.Ui_main_music):
 
     def save_settings(self, data: dict = None):
         # 保存设置内容
+        if data == None:
+            data = {}
+            data['cookies'] = self.data['settings']['cookies']
+            data['save_path'] = self.data['settings']['save_path']
+        data['repeat'] = self.data['settings']['repeat']
         if not os.path.exists(self.settings_dir):
             os.mkdir(self.settings_dir)
         path = self.settings_dir + 'settings.json'
@@ -1199,6 +1233,10 @@ class MyForm(QWidget, main1.Ui_main_music):
 
     icon_vip = 'border-image: url(:/vip/tools/resource/bg/icon/vip/vip.png);'
     icon_vip_no = 'border-image: url(:/vip/tools/resource/bg/icon/vip/vip_no.png);'
+
+    icon_repeat_order = 'border-image: url(:/play/tools/resource/bg/icon/play/shuffe_repeat.png);'
+    icon_repeat_one = 'border-image: url(:/play/tools/resource/bg/icon/play/shuffe_1.png);'
+    icon_repeat_random = 'border-image: url(:/play/tools/resource/bg/icon/play/shuffle_random.png);'
 
 
 if __name__ == "__main__":
