@@ -45,13 +45,6 @@ class MyForm(QWidget, main1.Ui_main_music):
         # self.set_qss()
 
         # 音乐信息
-        # 设置计时器间隔为0.2s
-        self.data['timer'].setInterval(200)
-        # 设置精度为毫秒级
-        self.data['timer'].setTimerType(Qt.TimerType.PreciseTimer)
-        self.data['timer'].timeout.connect(self.add_time)
-
-        # 加载设置
         self.data = {
             # 设置内容
             'settings': {
@@ -71,7 +64,7 @@ class MyForm(QWidget, main1.Ui_main_music):
             'auto_play_music_list': False,  # 是否自动播放列表
             'music_loaded': False,  # 加载情况
             'music_id': None,  # 当前音乐id
-            'play_status': self.stop,   # 当前播放状态
+            'play_status': self.stop,  # 当前播放状态
             'music_info': {},
             'lrc': {
                 'lyric': [],
@@ -95,6 +88,14 @@ class MyForm(QWidget, main1.Ui_main_music):
             'playlist_info': {},
 
         }
+        # 设置计时器间隔为0.2s
+        self.data['timer'].setInterval(200)
+        # 设置精度为毫秒级
+        self.data['timer'].setTimerType(Qt.TimerType.PreciseTimer)
+        self.data['timer'].timeout.connect(self.add_time)
+
+        # 加载设置
+
         self.set_settings()
 
         # 子页面
@@ -539,7 +540,7 @@ class MyForm(QWidget, main1.Ui_main_music):
     def load_music(self, music_id: str):
         # 启动下载线程
         # music_id = '1974443814'
-        self.stop_music()
+        self.pause_music()
         # 启动下载线程并连接更新界面
         self.disable_ui()
         self.download_thread = SongDownload(self.cloud, music_id)

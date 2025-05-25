@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CPlayer.iml" filepath="$PROJECT_DIR$/.idea/CPlayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../music_ui/.idea/music_ui.iml" filepath="$PROJECT_DIR$/../music_ui/.idea/music_ui.iml" />
     </modules>
   </component>
 </project>
