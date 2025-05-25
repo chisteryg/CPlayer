@@ -44,8 +44,14 @@ class MyForm(QWidget, main1.Ui_main_music):
         # # 设置全局qss
         # self.set_qss()
 
-
         # 音乐信息
+        # 设置计时器间隔为0.2s
+        self.data['timer'].setInterval(200)
+        # 设置精度为毫秒级
+        self.data['timer'].setTimerType(Qt.TimerType.PreciseTimer)
+        self.data['timer'].timeout.connect(self.add_time)
+
+        # 加载设置
         self.data = {
             # 设置内容
             'settings': {
@@ -60,11 +66,12 @@ class MyForm(QWidget, main1.Ui_main_music):
             'duration': 0,  # 总时长
 
             # 音乐播放情况
-            'music_list': [],
-            'music_list_type': None,
-            'music_loaded': False,
-            'music_id': None,
-            'play_status': self.stop,
+            'music_list': [],  # 播放列表
+            'music_list_type': None,  # 播放类型
+            'auto_play_music_list': False,  # 是否自动播放列表
+            'music_loaded': False,  # 加载情况
+            'music_id': None,  # 当前音乐id
+            'play_status': self.stop,   # 当前播放状态
             'music_info': {},
             'lrc': {
                 'lyric': [],
@@ -88,13 +95,6 @@ class MyForm(QWidget, main1.Ui_main_music):
             'playlist_info': {},
 
         }
-        # 设置计时器间隔为0.2s
-        self.data['timer'].setInterval(200)
-        # 设置精度为毫秒级
-        self.data['timer'].setTimerType(Qt.TimerType.PreciseTimer)
-        self.data['timer'].timeout.connect(self.add_time)
-
-        # 加载设置
         self.set_settings()
 
         # 子页面
@@ -285,6 +285,7 @@ class MyForm(QWidget, main1.Ui_main_music):
         return
 
     def play_recommend_music(self, music_id: str):
+        self.data['auto_play_music_list'] = False
         # 播放推荐音乐
         self.load_music(music_id)
         # 设置当前播放列表为每日推荐
@@ -381,6 +382,7 @@ class MyForm(QWidget, main1.Ui_main_music):
         return
 
     def play_search_music(self, music_id: str):
+        self.data['auto_play_music_list'] = False
         # 播放搜索内容中的音乐
         self.load_music(music_id)
 
@@ -491,11 +493,10 @@ class MyForm(QWidget, main1.Ui_main_music):
         return
 
     def play_playlist_music(self, music_id: str):
+        self.data['auto_play_music_list'] = False
         # 播放歌单音乐
         self.load_music(music_id)
-
         # 设置当前播放列表为歌单音乐
-        music_list = []
         playlist_id = self.data['playlist_id']
         music_list = self.data['playlist_info'][playlist_id]['trackIds']
         self.data['music_list'] = music_list
@@ -788,6 +789,8 @@ class MyForm(QWidget, main1.Ui_main_music):
             # 设置图标为暂停
             self.play_btn.setStyleSheet(self.icon_pause)
             self.set_mini_page_play_icon(self.icon_pause)
+            # 设置自动播放标志
+            self.data['auto_play_music_list'] = True
         return
 
     def play_at_music(self, position: int):
@@ -802,6 +805,8 @@ class MyForm(QWidget, main1.Ui_main_music):
             # 设置图标为暂停
             self.play_btn.setStyleSheet(self.icon_pause)
             self.set_mini_page_play_icon(self.icon_pause)
+            # 设置自动播放标志
+            self.data['auto_play_music_list'] = True
         return
 
     def pause_music(self):
@@ -842,6 +847,11 @@ class MyForm(QWidget, main1.Ui_main_music):
         # 设置图标为播放
         self.play_btn.setStyleSheet(self.icon_play)
         self.set_mini_page_play_icon(self.icon_play)
+
+        if self.data['auto_play_music_list']:
+            # 如果是自动播放标志
+            # 自动播放下一首
+            self.next_music()
         return
 
     def next_music(self):
