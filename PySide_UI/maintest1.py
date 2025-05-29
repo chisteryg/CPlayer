@@ -540,7 +540,7 @@ class MyForm(QWidget, main1.Ui_main_music):
     def load_music(self, music_id: str):
         # 启动下载线程
         # music_id = '1974443814'
-        self.pause_music()
+        self.stop_music()
         # 启动下载线程并连接更新界面
         self.disable_ui()
         self.download_thread = SongDownload(self.cloud, music_id)
@@ -762,8 +762,8 @@ class MyForm(QWidget, main1.Ui_main_music):
     def add_time(self):
         # 增加时间，同步更新ui
         if self.data['now'] >= self.data['duration']:
-            # 超过最大时间，终止计时器
-            self.stop_music()
+            # 超过最大时间，自动停止并播放下一首
+            self.auto_stop()
             return
 
         # 设置滑动条
@@ -827,6 +827,7 @@ class MyForm(QWidget, main1.Ui_main_music):
 
         return
 
+
     def stop_music(self):
         if self.data['play_status'] == self.playing or self.data['play_status'] == self.pause:
             # 如果当前处于播放或暂停状态，停止播放音乐
@@ -848,7 +849,11 @@ class MyForm(QWidget, main1.Ui_main_music):
         # 设置图标为播放
         self.play_btn.setStyleSheet(self.icon_play)
         self.set_mini_page_play_icon(self.icon_play)
+        return
 
+    def auto_stop(self):
+        # 停止音乐并播放下一首
+        self.stop_music()
         if self.data['auto_play_music_list']:
             # 如果是自动播放标志
             # 自动播放下一首
