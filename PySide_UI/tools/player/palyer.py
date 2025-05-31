@@ -40,7 +40,6 @@ class MusicPlayer(QMediaPlayer):
         else:
             self.device_description = device.description()
 
-        print(device)
 
         # 强制释放旧设备
         if self.audio_output:
