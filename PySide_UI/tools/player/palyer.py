@@ -49,7 +49,6 @@ class MusicPlayer(QMediaPlayer):
             self.audio_output = None
 
 
-
         self.audio_output = QAudioOutput(device)  # 必须传入设备对象
         self.setAudioOutput(self.audio_output)
         self.audio_output.setVolume(self.current_volume)
