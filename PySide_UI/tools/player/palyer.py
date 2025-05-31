@@ -27,7 +27,6 @@ class MusicPlayer(QMediaPlayer):
         )
 
         self.errorOccurred.connect(self.handle_error)  # 连接错误信号
-        # 其他初始化代码...
 
     def handle_error(self, error, error_string):
         print(f"播放错误: {error}, 详细信息: {error_string}")
