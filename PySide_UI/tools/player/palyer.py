@@ -71,17 +71,15 @@ class MusicPlayer(QMediaPlayer):
         try:
             self.setSource(url)
             # 加载音频文件
-            self.y, self.sr = librosa.load(music_url, sr=None)
+            self.y, self.sr = librosa.load(music_url, sr=None, mono=True)  # sr=None保留原始采样率
             # STFT参数设置
             n_fft = 2048
             hop_length = 512
             window = 'hann'
 
-            # 执行短时傅里叶变换
-            self.stft = librosa.stft(self.y, n_fft=n_fft, hop_length=hop_length, window=window)
+            # 执行STFT (短时傅里叶变换)
+            self.stft = librosa.stft(self.y, n_fft=n_fft, hop_length=hop_length)
 
-            # 计算频率信息
-            self.freqs = librosa.fft_frequencies(sr=self.sr, n_fft=n_fft)
 
             music_url = '已加载：' + music_url
         except Exception as e:
@@ -111,8 +109,8 @@ class MusicPlayer(QMediaPlayer):
             200, 400, 600, 800, 1000, 1200,
             # 1280Hz-3560Hz称为中高频
             1280, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000, 3200, 3400, 3560,
-            # 2560Hz-5120Hz称为高频
-            3600, 3800, 4000, 4200, 4400, 4600, 4800, 5000, 5120,
+            # # 2560Hz-5120Hz称为高频
+            # 3600, 3800, 4000, 4200, 4400, 4600, 4800, 5000, 5120,
             # # 5120Hz-20000Hz称为极高频
             # 6000, 8000, 12000, 14000, 16000, 20000,
         ]
@@ -120,34 +118,44 @@ class MusicPlayer(QMediaPlayer):
         # STFT参数设置
         n_fft = 2048
         hop_length = 512
-        window = 'hann'
 
-        # 将时间转换为帧索引
-        target_time_sec = target_time_ms / 1000.0
-        frame_index = int(np.floor(target_time_sec * self.sr / hop_length))
+        # 计算目标时间点对应的采样点索引
+        target_sample = int((target_time_ms / 1000) * self.sr)
 
-        # 确保索引在有效范围内
-        frame_index = np.clip(frame_index, 0, self.stft.shape[1] - 1)
+        # 计算目标时间对应的帧索引
+        frame_index = int(target_sample / hop_length)
 
-        # 获取幅度谱
-        magnitudes = np.abs(self.stft[:, frame_index])
+        # 获取目标帧的频谱
+        frame_spectrum = self.stft[:, frame_index]
 
-        # 创建结果字典
+        # 计算频率分辨率
+        freq_resolution = self.sr / n_fft
+
+        # 准备结果字典
         result = {}
 
         for freq in target_freqs:
-            # 找到最近的频率索引
-            freq_idx = np.argmin(np.abs(self.freqs - freq))
+            # 计算频率对应的bin索引
+            bin_index = int(round(freq / freq_resolution))
 
-            # 获取原始振幅
-            amp = magnitudes[freq_idx]
+            # 确保索引在有效范围内
+            if bin_index >= len(frame_spectrum):
+                bin_index = len(frame_spectrum) - 1
 
-            # 应用窗函数补偿（汉宁窗补偿因子）
-            if 0 < freq_idx < len(self.freqs) - 1:
-                amp *= 2
+            # 获取复数频谱值
+            complex_value = frame_spectrum[bin_index]
 
-            # # 存储结果
-            result[freq] = float(amp)
+            # 计算振幅 (复数的模)
+            amplitude = np.abs(complex_value)
+
+            # 计算分贝值 (避免log(0)错误)
+            db = 20 * np.log10(amplitude + 1e-10)  # 加上极小值防止0振幅
+
+            result[freq] = {
+                'amplitude': float(amplitude),
+                'db': float(db)
+            }
+            # result[freq] = float(db)
 
         return result
 
@@ -180,7 +188,7 @@ if __name__ == "__main__":
     # 创建应用实例
     app = QApplication(sys.argv)
     # 替换为你的音频文件路径
-    music_file = "./雷雨季节-柯柯柯啊.mp3"
+    music_file = "mp3/雷雨季节-柯柯柯啊.mp3"
     # music_file = "../PySide_UI/ui/music/30482460.mp3"
     p = MusicPlayer()
     p.setMusic(music_file)
