@@ -88,8 +88,8 @@ class MyForm(QWidget, main1.Ui_main_music):
             'playlist_info': {},
 
         }
-        # 设置计时器间隔为0.2s
-        self.data['timer'].setInterval(200)
+        # 设置计时器间隔
+        self.data['timer'].setInterval(self.interval)
         # 设置精度为毫秒级
         self.data['timer'].setTimerType(Qt.TimerType.PreciseTimer)
         self.data['timer'].timeout.connect(self.add_time)
@@ -767,7 +767,7 @@ class MyForm(QWidget, main1.Ui_main_music):
             return
 
         # 设置滑动条
-        self.data['now'] += 200
+        self.data['now'] += self.interval
         self.music_time_slider.setValue(self.data['now'])
         self.set_mini_page_time_value(self.data['now'])
         # 设置时间标签
@@ -1225,6 +1225,9 @@ class MyForm(QWidget, main1.Ui_main_music):
     settings_dir = './settings/'
     font_dir = 'ui/tools/resource/bg/font/ZCOOL_KuaiLe/ZCOOLKuaiLe-Regular.ttf'  # 替换为你的字体文件路径
 
+    # 刷新间隔
+    interval = 100
+
     # 歌词样式
     lrc_stylesheet = """
     QLabel{
@@ -1248,14 +1251,17 @@ class MyForm(QWidget, main1.Ui_main_music):
     }
     """
 
+    # 播放状态
     playing = 1
     pause = 2
     stop = 3
 
+    # 当前播放列表类型
     music_list_recommend = 1
     music_list_search = 2
     music_list_playlist = 3
 
+    # 重复类型
     repeat_order = 1
     repeat_one = 2
     repeat_random = 3
