@@ -9,7 +9,7 @@ from PySide6.QtWidgets import *
 
 from PySide_UI.tools.NeteaseCloudMusic_API.httpx_api_2 import NeteaseCloudMusicAPI
 from PySide_UI.tools.player.palyer import MusicPlayer
-from PySide_UI.ui import main1
+from PySide_UI.ui import main_v2
 from PySide_UI.ui.tools.requester_thread import *
 from PySide_UI.ui.tools.sub_page.Message import MessagePage
 from PySide_UI.ui.tools.sub_page.MiniPage import MiniPage
@@ -20,7 +20,7 @@ from PySide_UI.ui.tools.sub_page.SearchPage import SearchPage
 from PySide_UI.ui.tools.sub_page.Settings import SettingsPage
 
 
-class MyForm(QWidget, main1.Ui_main_music):
+class MyForm(QWidget, main_v2.Ui_main_music):
     destored_thread = Signal(int)
 
     def __init__(self, *args, **kwargs):
