@@ -9,7 +9,8 @@ from PySide6.QtWidgets import *
 
 from PySide_UI.tools.NeteaseCloudMusic_API.httpx_api_2 import NeteaseCloudMusicAPI
 from PySide_UI.tools.player.palyer import MusicPlayer
-from PySide_UI.ui import main_v2
+from PySide_UI.ui import main_v2, main1
+from PySide_UI.ui.tools.base.animatebar import AnimatedBar
 from PySide_UI.ui.tools.requester_thread import *
 from PySide_UI.ui.tools.sub_page.Message import MessagePage
 from PySide_UI.ui.tools.sub_page.MiniPage import MiniPage
@@ -95,7 +96,6 @@ class MyForm(QWidget, main_v2.Ui_main_music):
         self.data['timer'].timeout.connect(self.add_time)
 
         # 加载设置
-
         self.set_settings()
 
         # 子页面
@@ -103,6 +103,13 @@ class MyForm(QWidget, main_v2.Ui_main_music):
         self.settings_page = None
         self.mini_page = None
         self.recommend_playlist_btn.click()
+
+
+        # 可视化进度条
+        self.animate_bars = []
+        for i in range(70):
+            self.animate_bars.append(self.findChild(QProgressBar, f'db_bar_{i + 1}'))
+
 
         # 子线程
         self.save_thread = None
@@ -121,6 +128,8 @@ class MyForm(QWidget, main_v2.Ui_main_music):
     def close(self):
         # 退出时保存设置
         self.save_settings()
+        if self.subpage is not None:
+            self.subpage.close()
         super().close()
         return
 
@@ -766,6 +775,9 @@ class MyForm(QWidget, main_v2.Ui_main_music):
             self.auto_stop()
             return
 
+        # 刷新分贝
+        self.update_animate_bar_value(self.data['now'])
+
         # 设置滑动条
         self.data['now'] += self.interval
         self.music_time_slider.setValue(self.data['now'])
@@ -1079,6 +1091,28 @@ class MyForm(QWidget, main_v2.Ui_main_music):
         return
 
     '''↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 播放子页面相关方法 ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑'''
+
+    '''↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 可视化相关方法 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓'''
+
+    def update_animate_bar_value(self, time: int, value_type: str = 'db'):
+        # 更新可视化分贝进度条的值
+        # 获取当前时刻分贝、振幅数据
+        result = self.player.analyze_audio(time)
+        if value_type == 'db':
+            # 使用分贝db
+            i = 1
+            for key in result.keys():
+                self.animate_bars[i].setValue(result[key]['db'] * 4)
+                i +=1
+        else:
+            # 使用振幅amplitude
+            i = 1
+            for key in result.keys():
+                self.animate_bars[i].setValue(result[key]['amplitude'] * 4)
+                i += 1
+        return
+
+    '''↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 可视化相关方法 ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑'''
 
     '''↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 左下角调整大小相关方法 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓'''
 

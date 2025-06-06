@@ -81,7 +81,7 @@ QPushButton[page]:checked{
 }
 /*模式按钮*/
 
-/*提示样式*/
+/*tooltop提示样式*/
 QToolTip{
 	border: 1px solid rgb(118, 118, 118);
 	border: none;
@@ -92,7 +92,25 @@ QToolTip{
 	font-size: 18px;
 }
 
-/*提示样式*/
+/*tooltip提示样式*/
+
+/*分贝进度条样式*/
+QProgressBar{
+	border: none;
+}
+QProgressBar::chunk {
+	border-radius: 3px;
+	background-color: qlineargradient(
+		x1:0, y1:0,
+		x2:0, y2:1,
+		stop:0 rgba(104, 151, 204, 0.2),
+		stop:1 rgba(104, 151, 204, 0.6)
+	);
+
+}
+/*分贝进度条样式*/
+
+
 
 
 /*垂直滚动条样式*/
@@ -846,17 +864,1795 @@ QSlider#volume_slider::handle:hover
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">border: 2px solid white;</string>
+      <string notr="true">/*border: 2px solid white;*/</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QWidget" name="widget" native="true">
+       <widget class="QWidget" name="db_widget" native="true">
         <property name="minimumSize">
          <size>
           <width>0</width>
           <height>60</height>
          </size>
         </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_8">
+         <item>
+          <spacer name="horizontalSpacer_11">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_1">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_2">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_3">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_4">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_5">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_6">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_7">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_8">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_9">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_10">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_11">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_12">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_13">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_14">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_15">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_16">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_17">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_18">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_19">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_20">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_21">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_22">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_23">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_24">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_25">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_26">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_27">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_28">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_29">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_30">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_31">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_32">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_33">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_34">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_35">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_36">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_37">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_38">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_39">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_40">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_41">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_42">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_43">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_44">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_45">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_46">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_47">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_48">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_49">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_50">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_51">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_52">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_53">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_54">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_55">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_56">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_57">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_58">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_59">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_60">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_61">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_62">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_63">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_64">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_65">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_66">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_67">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_68">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_69">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="AnimatedBar" name="db_bar_70">
+           <property name="minimumSize">
+            <size>
+             <width>8</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>8</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>65</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="format">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_12">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
        </widget>
       </item>
       <item>
@@ -1422,6 +3218,11 @@ QSlider#volume_slider::handle:hover
    <class>MusicTimeSlider</class>
    <extends>QSlider</extends>
    <header>PySide_UI.ui.tools.base.musictimeslider</header>
+  </customwidget>
+  <customwidget>
+   <class>AnimatedBar</class>
+   <extends>QProgressBar</extends>
+   <header>PySide_UI.ui.tools.base.animatebar</header>
   </customwidget>
  </customwidgets>
  <resources>

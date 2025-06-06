@@ -19,6 +19,7 @@ from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QPushButton, QScrollArea, QSizePolicy, QSlider,
     QSpacerItem, QStackedWidget, QVBoxLayout, QWidget)
 
+from PySide_UI.ui.tools.base.animatebar import AnimatedBar
 from PySide_UI.ui.tools.base.movewidget import MoveWidget
 from PySide_UI.ui.tools.base.musictimeslider import MusicTimeSlider
 import resource_rc
@@ -91,7 +92,7 @@ class Ui_main_music(object):
 "}\n"
 "/*\u6a21\u5f0f\u6309\u94ae*/\n"
 "\n"
-"/*\u63d0\u793a\u6837\u5f0f*/\n"
+"/*tooltop\u63d0\u793a\u6837\u5f0f*/\n"
 "QToolTip{\n"
 "	border: 1px solid rgb(118, 118, 118);\n"
 "	border: none;\n"
@@ -102,7 +103,26 @@ class Ui_main_music(object):
 "	font-size: 18px;\n"
 "}\n"
 "\n"
-"/*\u63d0\u793a\u6837\u5f0f*/\n"
+"/*tooltip\u63d0\u793a\u6837\u5f0f*/\n"
+"\n"
+"/*\u5206\u8d1d\u8fdb\u5ea6\u6761\u6837\u5f0f*/\n"
+"QProgressBar{\n"
+"	border: none;\n"
+"}\n"
+"QProgressBar::chunk {\n"
+"	border-radius: 3px;\n"
+"	background-color: qlineargradient(\n"
+"		x1:0, y1:0,\n"
+"		x2:0, y2:1,\n"
+"		stop:0 rgba(104, 151, 204, 0.2),\n"
+"		stop:1 rgba(104, 15"
+                        "1, 204, 0.6)\n"
+"	);\n"
+"\n"
+"}\n"
+"/*\u5206\u8d1d\u8fdb\u5ea6\u6761\u6837\u5f0f*/\n"
+"\n"
+"\n"
 "\n"
 "\n"
 "/*\u5782\u76f4\u6eda\u52a8\u6761\u6837\u5f0f*/\n"
@@ -110,8 +130,7 @@ class Ui_main_music(object):
 "    width: 0;  /* \u9690\u85cf\u6c34\u5e73\u6eda\u52a8\u6761\u7684\u7bad\u5934 */\n"
 "    height: 0; /* \u9690\u85cf\u5782\u76f4\u6eda\u52a8\u6761\u7684\u7bad\u5934 */\n"
 "}\n"
-"QScrollBar::"
-                        "add-page, QScrollBar::sub-page {\n"
+"QScrollBar::add-page, QScrollBar::sub-page {\n"
 "    background: transparent;\n"
 "    /*background: rgba(255, 255, 255, 0.5);*/\n"
 "	border: 0px;\n"
@@ -133,7 +152,8 @@ class Ui_main_music(object):
 "}\n"
 "QScrollBar::handle:hover{\n"
 "	/*background-color: #75ACEB;*/\n"
-"	background-color: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0, stop: 0 #639AD4, stop: 1 #DE76A3);\n"
+"	background-color: q"
+                        "lineargradient(x1: 0, y1: 1, x2: 0, y2: 0, stop: 0 #639AD4, stop: 1 #DE76A3);\n"
 "}\n"
 "QScrollBar:vertical {\n"
 "    border: none;          /* \u53bb\u9664\u6eda\u52a8\u6761\u6574\u4f53\u8fb9\u6846 */\n"
@@ -144,8 +164,7 @@ class Ui_main_music(object):
 "}\n"
 "QScrollArea{\n"
 "	padding-top: 5px;\n"
-"	padd"
-                        "ing-bottom: 5px;\n"
+"	padding-bottom: 5px;\n"
 "}\n"
 "/*\u5782\u76f4\u6eda\u52a8\u6761\u6837\u5f0f*/\n"
 "\n"
@@ -178,7 +197,8 @@ class Ui_main_music(object):
 "	border-radius: 20px;\n"
 "}\n"
 "#list_count_btn{\n"
-"	padding-left: 10px;\n"
+"	pa"
+                        "dding-left: 10px;\n"
 "}\n"
 "/*\u6b4c\u5355\u4fe1\u606f*/\n"
 "\n"
@@ -201,8 +221,7 @@ class Ui_main_music(object):
 "	color: #DE76A3;\n"
 "	font-size: 16px;\n"
 "}\n"
-""
-                        "/*\u8fdb\u5ea6\u6ed1\u52a8\u6761*/\n"
+"/*\u8fdb\u5ea6\u6ed1\u52a8\u6761*/\n"
 "QSlider#music_time_slider{\n"
 "	margin: 3px;\n"
 "}\n"
@@ -232,7 +251,8 @@ class Ui_main_music(object):
 "QSlider#music_time_slider::handle    \n"
 "{\n"
 "	height: 10px;  \n"
-"	width: 10px;\n"
+""
+                        "	width: 10px;\n"
 "	border-radius: 5px;\n"
 "	background: #5C89BD;\n"
 "	background: #E84D90;\n"
@@ -251,8 +271,7 @@ class Ui_main_music(object):
 "	border-radius: 2px;\n"
 "}\n"
 "\n"
-"QSlider#v"
-                        "olume_slider::sub-page \n"
+"QSlider#volume_slider::sub-page \n"
 "{\n"
 "	background-color: #e52d28;\n"
 "	border-radius: 2px;\n"
@@ -285,7 +304,8 @@ class Ui_main_music(object):
 "/*\u56fe\u6807*/\n"
 "/*\u6807\u9898\u680f*/\n"
 "#close_btn{\n"
-"	border-image: url(:/title/tools/resource/bg/icon/title/clear.png);\n"
+"	border-image: url(:/title/tools/resource/b"
+                        "g/icon/title/clear.png);\n"
 "}\n"
 "#max_btn{\n"
 "	border-image: url(:/title/tools/resource/bg/icon/title/max.png);\n"
@@ -297,8 +317,7 @@ class Ui_main_music(object):
 "	border-image: url(:/title/tools/resource/bg/icon/title/settings_4.png);\n"
 "}\n"
 "#like_btn{\n"
-"	border-image: url(:/play/tools/resource/bg/icon/play/like_no.p"
-                        "ng);\n"
+"	border-image: url(:/play/tools/resource/bg/icon/play/like_no.png);\n"
 "}\n"
 "#last_btn{\n"
 "	border-image: url(:/play/tools/resource/bg/icon/play/previous.png);\n"
@@ -319,7 +338,8 @@ class Ui_main_music(object):
 "	border-image: url(:/play/tools/resource/bg/icon/play/subpage_1.png);\n"
 "}\n"
 "#comments_btn{\n"
-"	border-image: url(:/play/tools/resource/bg/icon/play/comment_1.png);\n"
+"	border-image: url(:/play/tools"
+                        "/resource/bg/icon/play/comment_1.png);\n"
 "}\n"
 "#download_btn{\n"
 "	border-image: url(:/play/tools/resource/bg/icon/play/download_1.png);\n"
@@ -524,14 +544,654 @@ class Ui_main_music(object):
         self.widget_2.setObjectName(u"widget_2")
         self.widget_2.setMinimumSize(QSize(300, 200))
         self.widget_2.setMaximumSize(QSize(16777215, 200))
-        self.widget_2.setStyleSheet(u"border: 2px solid white;")
+        self.widget_2.setStyleSheet(u"/*border: 2px solid white;*/")
         self.verticalLayout = QVBoxLayout(self.widget_2)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.widget = QWidget(self.widget_2)
-        self.widget.setObjectName(u"widget")
-        self.widget.setMinimumSize(QSize(0, 60))
+        self.db_widget = QWidget(self.widget_2)
+        self.db_widget.setObjectName(u"db_widget")
+        self.db_widget.setMinimumSize(QSize(0, 60))
+        self.horizontalLayout_8 = QHBoxLayout(self.db_widget)
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.verticalLayout.addWidget(self.widget)
+        self.horizontalLayout_8.addItem(self.horizontalSpacer_11)
+
+        self.db_bar_1 = AnimatedBar(self.db_widget)
+        self.db_bar_1.setObjectName(u"db_bar_1")
+        self.db_bar_1.setMinimumSize(QSize(8, 0))
+        self.db_bar_1.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_1.setValue(65)
+        self.db_bar_1.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_1)
+
+        self.db_bar_2 = AnimatedBar(self.db_widget)
+        self.db_bar_2.setObjectName(u"db_bar_2")
+        self.db_bar_2.setMinimumSize(QSize(8, 0))
+        self.db_bar_2.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_2.setValue(65)
+        self.db_bar_2.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_2)
+
+        self.db_bar_3 = AnimatedBar(self.db_widget)
+        self.db_bar_3.setObjectName(u"db_bar_3")
+        self.db_bar_3.setMinimumSize(QSize(8, 0))
+        self.db_bar_3.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_3.setValue(65)
+        self.db_bar_3.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_3)
+
+        self.db_bar_4 = AnimatedBar(self.db_widget)
+        self.db_bar_4.setObjectName(u"db_bar_4")
+        self.db_bar_4.setMinimumSize(QSize(8, 0))
+        self.db_bar_4.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_4.setValue(65)
+        self.db_bar_4.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_4)
+
+        self.db_bar_5 = AnimatedBar(self.db_widget)
+        self.db_bar_5.setObjectName(u"db_bar_5")
+        self.db_bar_5.setMinimumSize(QSize(8, 0))
+        self.db_bar_5.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_5.setValue(65)
+        self.db_bar_5.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_5)
+
+        self.db_bar_6 = AnimatedBar(self.db_widget)
+        self.db_bar_6.setObjectName(u"db_bar_6")
+        self.db_bar_6.setMinimumSize(QSize(8, 0))
+        self.db_bar_6.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_6.setValue(65)
+        self.db_bar_6.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_6)
+
+        self.db_bar_7 = AnimatedBar(self.db_widget)
+        self.db_bar_7.setObjectName(u"db_bar_7")
+        self.db_bar_7.setMinimumSize(QSize(8, 0))
+        self.db_bar_7.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_7.setValue(65)
+        self.db_bar_7.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_7)
+
+        self.db_bar_8 = AnimatedBar(self.db_widget)
+        self.db_bar_8.setObjectName(u"db_bar_8")
+        self.db_bar_8.setMinimumSize(QSize(8, 0))
+        self.db_bar_8.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_8.setValue(65)
+        self.db_bar_8.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_8)
+
+        self.db_bar_9 = AnimatedBar(self.db_widget)
+        self.db_bar_9.setObjectName(u"db_bar_9")
+        self.db_bar_9.setMinimumSize(QSize(8, 0))
+        self.db_bar_9.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_9.setValue(65)
+        self.db_bar_9.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_9)
+
+        self.db_bar_10 = AnimatedBar(self.db_widget)
+        self.db_bar_10.setObjectName(u"db_bar_10")
+        self.db_bar_10.setMinimumSize(QSize(8, 0))
+        self.db_bar_10.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_10.setValue(65)
+        self.db_bar_10.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_10)
+
+        self.db_bar_11 = AnimatedBar(self.db_widget)
+        self.db_bar_11.setObjectName(u"db_bar_11")
+        self.db_bar_11.setMinimumSize(QSize(8, 0))
+        self.db_bar_11.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_11.setValue(65)
+        self.db_bar_11.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_11)
+
+        self.db_bar_12 = AnimatedBar(self.db_widget)
+        self.db_bar_12.setObjectName(u"db_bar_12")
+        self.db_bar_12.setMinimumSize(QSize(8, 0))
+        self.db_bar_12.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_12.setValue(65)
+        self.db_bar_12.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_12)
+
+        self.db_bar_13 = AnimatedBar(self.db_widget)
+        self.db_bar_13.setObjectName(u"db_bar_13")
+        self.db_bar_13.setMinimumSize(QSize(8, 0))
+        self.db_bar_13.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_13.setValue(65)
+        self.db_bar_13.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_13)
+
+        self.db_bar_14 = AnimatedBar(self.db_widget)
+        self.db_bar_14.setObjectName(u"db_bar_14")
+        self.db_bar_14.setMinimumSize(QSize(8, 0))
+        self.db_bar_14.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_14.setValue(65)
+        self.db_bar_14.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_14)
+
+        self.db_bar_15 = AnimatedBar(self.db_widget)
+        self.db_bar_15.setObjectName(u"db_bar_15")
+        self.db_bar_15.setMinimumSize(QSize(8, 0))
+        self.db_bar_15.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_15.setValue(65)
+        self.db_bar_15.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_15)
+
+        self.db_bar_16 = AnimatedBar(self.db_widget)
+        self.db_bar_16.setObjectName(u"db_bar_16")
+        self.db_bar_16.setMinimumSize(QSize(8, 0))
+        self.db_bar_16.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_16.setValue(65)
+        self.db_bar_16.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_16)
+
+        self.db_bar_17 = AnimatedBar(self.db_widget)
+        self.db_bar_17.setObjectName(u"db_bar_17")
+        self.db_bar_17.setMinimumSize(QSize(8, 0))
+        self.db_bar_17.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_17.setValue(65)
+        self.db_bar_17.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_17)
+
+        self.db_bar_18 = AnimatedBar(self.db_widget)
+        self.db_bar_18.setObjectName(u"db_bar_18")
+        self.db_bar_18.setMinimumSize(QSize(8, 0))
+        self.db_bar_18.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_18.setValue(65)
+        self.db_bar_18.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_18)
+
+        self.db_bar_19 = AnimatedBar(self.db_widget)
+        self.db_bar_19.setObjectName(u"db_bar_19")
+        self.db_bar_19.setMinimumSize(QSize(8, 0))
+        self.db_bar_19.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_19.setValue(65)
+        self.db_bar_19.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_19)
+
+        self.db_bar_20 = AnimatedBar(self.db_widget)
+        self.db_bar_20.setObjectName(u"db_bar_20")
+        self.db_bar_20.setMinimumSize(QSize(8, 0))
+        self.db_bar_20.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_20.setValue(65)
+        self.db_bar_20.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_20)
+
+        self.db_bar_21 = AnimatedBar(self.db_widget)
+        self.db_bar_21.setObjectName(u"db_bar_21")
+        self.db_bar_21.setMinimumSize(QSize(8, 0))
+        self.db_bar_21.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_21.setValue(65)
+        self.db_bar_21.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_21)
+
+        self.db_bar_22 = AnimatedBar(self.db_widget)
+        self.db_bar_22.setObjectName(u"db_bar_22")
+        self.db_bar_22.setMinimumSize(QSize(8, 0))
+        self.db_bar_22.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_22.setValue(65)
+        self.db_bar_22.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_22)
+
+        self.db_bar_23 = AnimatedBar(self.db_widget)
+        self.db_bar_23.setObjectName(u"db_bar_23")
+        self.db_bar_23.setMinimumSize(QSize(8, 0))
+        self.db_bar_23.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_23.setValue(65)
+        self.db_bar_23.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_23)
+
+        self.db_bar_24 = AnimatedBar(self.db_widget)
+        self.db_bar_24.setObjectName(u"db_bar_24")
+        self.db_bar_24.setMinimumSize(QSize(8, 0))
+        self.db_bar_24.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_24.setValue(65)
+        self.db_bar_24.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_24)
+
+        self.db_bar_25 = AnimatedBar(self.db_widget)
+        self.db_bar_25.setObjectName(u"db_bar_25")
+        self.db_bar_25.setMinimumSize(QSize(8, 0))
+        self.db_bar_25.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_25.setValue(65)
+        self.db_bar_25.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_25)
+
+        self.db_bar_26 = AnimatedBar(self.db_widget)
+        self.db_bar_26.setObjectName(u"db_bar_26")
+        self.db_bar_26.setMinimumSize(QSize(8, 0))
+        self.db_bar_26.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_26.setValue(65)
+        self.db_bar_26.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_26)
+
+        self.db_bar_27 = AnimatedBar(self.db_widget)
+        self.db_bar_27.setObjectName(u"db_bar_27")
+        self.db_bar_27.setMinimumSize(QSize(8, 0))
+        self.db_bar_27.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_27.setValue(65)
+        self.db_bar_27.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_27)
+
+        self.db_bar_28 = AnimatedBar(self.db_widget)
+        self.db_bar_28.setObjectName(u"db_bar_28")
+        self.db_bar_28.setMinimumSize(QSize(8, 0))
+        self.db_bar_28.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_28.setValue(65)
+        self.db_bar_28.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_28)
+
+        self.db_bar_29 = AnimatedBar(self.db_widget)
+        self.db_bar_29.setObjectName(u"db_bar_29")
+        self.db_bar_29.setMinimumSize(QSize(8, 0))
+        self.db_bar_29.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_29.setValue(65)
+        self.db_bar_29.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_29)
+
+        self.db_bar_30 = AnimatedBar(self.db_widget)
+        self.db_bar_30.setObjectName(u"db_bar_30")
+        self.db_bar_30.setMinimumSize(QSize(8, 0))
+        self.db_bar_30.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_30.setValue(65)
+        self.db_bar_30.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_30)
+
+        self.db_bar_31 = AnimatedBar(self.db_widget)
+        self.db_bar_31.setObjectName(u"db_bar_31")
+        self.db_bar_31.setMinimumSize(QSize(8, 0))
+        self.db_bar_31.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_31.setValue(65)
+        self.db_bar_31.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_31)
+
+        self.db_bar_32 = AnimatedBar(self.db_widget)
+        self.db_bar_32.setObjectName(u"db_bar_32")
+        self.db_bar_32.setMinimumSize(QSize(8, 0))
+        self.db_bar_32.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_32.setValue(65)
+        self.db_bar_32.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_32)
+
+        self.db_bar_33 = AnimatedBar(self.db_widget)
+        self.db_bar_33.setObjectName(u"db_bar_33")
+        self.db_bar_33.setMinimumSize(QSize(8, 0))
+        self.db_bar_33.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_33.setValue(65)
+        self.db_bar_33.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_33)
+
+        self.db_bar_34 = AnimatedBar(self.db_widget)
+        self.db_bar_34.setObjectName(u"db_bar_34")
+        self.db_bar_34.setMinimumSize(QSize(8, 0))
+        self.db_bar_34.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_34.setValue(65)
+        self.db_bar_34.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_34)
+
+        self.db_bar_35 = AnimatedBar(self.db_widget)
+        self.db_bar_35.setObjectName(u"db_bar_35")
+        self.db_bar_35.setMinimumSize(QSize(8, 0))
+        self.db_bar_35.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_35.setValue(65)
+        self.db_bar_35.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_35)
+
+        self.db_bar_36 = AnimatedBar(self.db_widget)
+        self.db_bar_36.setObjectName(u"db_bar_36")
+        self.db_bar_36.setMinimumSize(QSize(8, 0))
+        self.db_bar_36.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_36.setValue(65)
+        self.db_bar_36.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_36)
+
+        self.db_bar_37 = AnimatedBar(self.db_widget)
+        self.db_bar_37.setObjectName(u"db_bar_37")
+        self.db_bar_37.setMinimumSize(QSize(8, 0))
+        self.db_bar_37.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_37.setValue(65)
+        self.db_bar_37.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_37)
+
+        self.db_bar_38 = AnimatedBar(self.db_widget)
+        self.db_bar_38.setObjectName(u"db_bar_38")
+        self.db_bar_38.setMinimumSize(QSize(8, 0))
+        self.db_bar_38.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_38.setValue(65)
+        self.db_bar_38.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_38)
+
+        self.db_bar_39 = AnimatedBar(self.db_widget)
+        self.db_bar_39.setObjectName(u"db_bar_39")
+        self.db_bar_39.setMinimumSize(QSize(8, 0))
+        self.db_bar_39.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_39.setValue(65)
+        self.db_bar_39.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_39)
+
+        self.db_bar_40 = AnimatedBar(self.db_widget)
+        self.db_bar_40.setObjectName(u"db_bar_40")
+        self.db_bar_40.setMinimumSize(QSize(8, 0))
+        self.db_bar_40.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_40.setValue(65)
+        self.db_bar_40.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_40)
+
+        self.db_bar_41 = AnimatedBar(self.db_widget)
+        self.db_bar_41.setObjectName(u"db_bar_41")
+        self.db_bar_41.setMinimumSize(QSize(8, 0))
+        self.db_bar_41.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_41.setValue(65)
+        self.db_bar_41.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_41)
+
+        self.db_bar_42 = AnimatedBar(self.db_widget)
+        self.db_bar_42.setObjectName(u"db_bar_42")
+        self.db_bar_42.setMinimumSize(QSize(8, 0))
+        self.db_bar_42.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_42.setValue(65)
+        self.db_bar_42.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_42)
+
+        self.db_bar_43 = AnimatedBar(self.db_widget)
+        self.db_bar_43.setObjectName(u"db_bar_43")
+        self.db_bar_43.setMinimumSize(QSize(8, 0))
+        self.db_bar_43.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_43.setValue(65)
+        self.db_bar_43.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_43)
+
+        self.db_bar_44 = AnimatedBar(self.db_widget)
+        self.db_bar_44.setObjectName(u"db_bar_44")
+        self.db_bar_44.setMinimumSize(QSize(8, 0))
+        self.db_bar_44.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_44.setValue(65)
+        self.db_bar_44.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_44)
+
+        self.db_bar_45 = AnimatedBar(self.db_widget)
+        self.db_bar_45.setObjectName(u"db_bar_45")
+        self.db_bar_45.setMinimumSize(QSize(8, 0))
+        self.db_bar_45.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_45.setValue(65)
+        self.db_bar_45.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_45)
+
+        self.db_bar_46 = AnimatedBar(self.db_widget)
+        self.db_bar_46.setObjectName(u"db_bar_46")
+        self.db_bar_46.setMinimumSize(QSize(8, 0))
+        self.db_bar_46.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_46.setValue(65)
+        self.db_bar_46.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_46)
+
+        self.db_bar_47 = AnimatedBar(self.db_widget)
+        self.db_bar_47.setObjectName(u"db_bar_47")
+        self.db_bar_47.setMinimumSize(QSize(8, 0))
+        self.db_bar_47.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_47.setValue(65)
+        self.db_bar_47.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_47)
+
+        self.db_bar_48 = AnimatedBar(self.db_widget)
+        self.db_bar_48.setObjectName(u"db_bar_48")
+        self.db_bar_48.setMinimumSize(QSize(8, 0))
+        self.db_bar_48.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_48.setValue(65)
+        self.db_bar_48.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_48)
+
+        self.db_bar_49 = AnimatedBar(self.db_widget)
+        self.db_bar_49.setObjectName(u"db_bar_49")
+        self.db_bar_49.setMinimumSize(QSize(8, 0))
+        self.db_bar_49.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_49.setValue(65)
+        self.db_bar_49.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_49)
+
+        self.db_bar_50 = AnimatedBar(self.db_widget)
+        self.db_bar_50.setObjectName(u"db_bar_50")
+        self.db_bar_50.setMinimumSize(QSize(8, 0))
+        self.db_bar_50.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_50.setValue(65)
+        self.db_bar_50.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_50)
+
+        self.db_bar_51 = AnimatedBar(self.db_widget)
+        self.db_bar_51.setObjectName(u"db_bar_51")
+        self.db_bar_51.setMinimumSize(QSize(8, 0))
+        self.db_bar_51.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_51.setValue(65)
+        self.db_bar_51.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_51)
+
+        self.db_bar_52 = AnimatedBar(self.db_widget)
+        self.db_bar_52.setObjectName(u"db_bar_52")
+        self.db_bar_52.setMinimumSize(QSize(8, 0))
+        self.db_bar_52.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_52.setValue(65)
+        self.db_bar_52.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_52)
+
+        self.db_bar_53 = AnimatedBar(self.db_widget)
+        self.db_bar_53.setObjectName(u"db_bar_53")
+        self.db_bar_53.setMinimumSize(QSize(8, 0))
+        self.db_bar_53.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_53.setValue(65)
+        self.db_bar_53.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_53)
+
+        self.db_bar_54 = AnimatedBar(self.db_widget)
+        self.db_bar_54.setObjectName(u"db_bar_54")
+        self.db_bar_54.setMinimumSize(QSize(8, 0))
+        self.db_bar_54.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_54.setValue(65)
+        self.db_bar_54.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_54)
+
+        self.db_bar_55 = AnimatedBar(self.db_widget)
+        self.db_bar_55.setObjectName(u"db_bar_55")
+        self.db_bar_55.setMinimumSize(QSize(8, 0))
+        self.db_bar_55.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_55.setValue(65)
+        self.db_bar_55.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_55)
+
+        self.db_bar_56 = AnimatedBar(self.db_widget)
+        self.db_bar_56.setObjectName(u"db_bar_56")
+        self.db_bar_56.setMinimumSize(QSize(8, 0))
+        self.db_bar_56.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_56.setValue(65)
+        self.db_bar_56.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_56)
+
+        self.db_bar_57 = AnimatedBar(self.db_widget)
+        self.db_bar_57.setObjectName(u"db_bar_57")
+        self.db_bar_57.setMinimumSize(QSize(8, 0))
+        self.db_bar_57.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_57.setValue(65)
+        self.db_bar_57.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_57)
+
+        self.db_bar_58 = AnimatedBar(self.db_widget)
+        self.db_bar_58.setObjectName(u"db_bar_58")
+        self.db_bar_58.setMinimumSize(QSize(8, 0))
+        self.db_bar_58.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_58.setValue(65)
+        self.db_bar_58.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_58)
+
+        self.db_bar_59 = AnimatedBar(self.db_widget)
+        self.db_bar_59.setObjectName(u"db_bar_59")
+        self.db_bar_59.setMinimumSize(QSize(8, 0))
+        self.db_bar_59.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_59.setValue(65)
+        self.db_bar_59.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_59)
+
+        self.db_bar_60 = AnimatedBar(self.db_widget)
+        self.db_bar_60.setObjectName(u"db_bar_60")
+        self.db_bar_60.setMinimumSize(QSize(8, 0))
+        self.db_bar_60.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_60.setValue(65)
+        self.db_bar_60.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_60)
+
+        self.db_bar_61 = AnimatedBar(self.db_widget)
+        self.db_bar_61.setObjectName(u"db_bar_61")
+        self.db_bar_61.setMinimumSize(QSize(8, 0))
+        self.db_bar_61.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_61.setValue(65)
+        self.db_bar_61.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_61)
+
+        self.db_bar_62 = AnimatedBar(self.db_widget)
+        self.db_bar_62.setObjectName(u"db_bar_62")
+        self.db_bar_62.setMinimumSize(QSize(8, 0))
+        self.db_bar_62.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_62.setValue(65)
+        self.db_bar_62.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_62)
+
+        self.db_bar_63 = AnimatedBar(self.db_widget)
+        self.db_bar_63.setObjectName(u"db_bar_63")
+        self.db_bar_63.setMinimumSize(QSize(8, 0))
+        self.db_bar_63.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_63.setValue(65)
+        self.db_bar_63.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_63)
+
+        self.db_bar_64 = AnimatedBar(self.db_widget)
+        self.db_bar_64.setObjectName(u"db_bar_64")
+        self.db_bar_64.setMinimumSize(QSize(8, 0))
+        self.db_bar_64.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_64.setValue(65)
+        self.db_bar_64.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_64)
+
+        self.db_bar_65 = AnimatedBar(self.db_widget)
+        self.db_bar_65.setObjectName(u"db_bar_65")
+        self.db_bar_65.setMinimumSize(QSize(8, 0))
+        self.db_bar_65.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_65.setValue(65)
+        self.db_bar_65.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_65)
+
+        self.db_bar_66 = AnimatedBar(self.db_widget)
+        self.db_bar_66.setObjectName(u"db_bar_66")
+        self.db_bar_66.setMinimumSize(QSize(8, 0))
+        self.db_bar_66.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_66.setValue(65)
+        self.db_bar_66.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_66)
+
+        self.db_bar_67 = AnimatedBar(self.db_widget)
+        self.db_bar_67.setObjectName(u"db_bar_67")
+        self.db_bar_67.setMinimumSize(QSize(8, 0))
+        self.db_bar_67.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_67.setValue(65)
+        self.db_bar_67.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_67)
+
+        self.db_bar_68 = AnimatedBar(self.db_widget)
+        self.db_bar_68.setObjectName(u"db_bar_68")
+        self.db_bar_68.setMinimumSize(QSize(8, 0))
+        self.db_bar_68.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_68.setValue(65)
+        self.db_bar_68.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_68)
+
+        self.db_bar_69 = AnimatedBar(self.db_widget)
+        self.db_bar_69.setObjectName(u"db_bar_69")
+        self.db_bar_69.setMinimumSize(QSize(8, 0))
+        self.db_bar_69.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_69.setValue(65)
+        self.db_bar_69.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_69)
+
+        self.db_bar_70 = AnimatedBar(self.db_widget)
+        self.db_bar_70.setObjectName(u"db_bar_70")
+        self.db_bar_70.setMinimumSize(QSize(8, 0))
+        self.db_bar_70.setMaximumSize(QSize(8, 16777215))
+        self.db_bar_70.setValue(65)
+        self.db_bar_70.setOrientation(Qt.Orientation.Vertical)
+
+        self.horizontalLayout_8.addWidget(self.db_bar_70)
+
+        self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_8.addItem(self.horizontalSpacer_12)
+
+
+        self.verticalLayout.addWidget(self.db_widget)
 
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
@@ -770,6 +1430,76 @@ class Ui_main_music(object):
         self.play_page_btn.setProperty("page", QCoreApplication.translate("main_music", u"-1", None))
         self.music_name_lab_2.setText(QCoreApplication.translate("main_music", u"\u6b4c\u540d", None))
         self.artists_lab_2.setText(QCoreApplication.translate("main_music", u"\u6b4c\u624b", None))
+        self.db_bar_1.setFormat("")
+        self.db_bar_2.setFormat("")
+        self.db_bar_3.setFormat("")
+        self.db_bar_4.setFormat("")
+        self.db_bar_5.setFormat("")
+        self.db_bar_6.setFormat("")
+        self.db_bar_7.setFormat("")
+        self.db_bar_8.setFormat("")
+        self.db_bar_9.setFormat("")
+        self.db_bar_10.setFormat("")
+        self.db_bar_11.setFormat("")
+        self.db_bar_12.setFormat("")
+        self.db_bar_13.setFormat("")
+        self.db_bar_14.setFormat("")
+        self.db_bar_15.setFormat("")
+        self.db_bar_16.setFormat("")
+        self.db_bar_17.setFormat("")
+        self.db_bar_18.setFormat("")
+        self.db_bar_19.setFormat("")
+        self.db_bar_20.setFormat("")
+        self.db_bar_21.setFormat("")
+        self.db_bar_22.setFormat("")
+        self.db_bar_23.setFormat("")
+        self.db_bar_24.setFormat("")
+        self.db_bar_25.setFormat("")
+        self.db_bar_26.setFormat("")
+        self.db_bar_27.setFormat("")
+        self.db_bar_28.setFormat("")
+        self.db_bar_29.setFormat("")
+        self.db_bar_30.setFormat("")
+        self.db_bar_31.setFormat("")
+        self.db_bar_32.setFormat("")
+        self.db_bar_33.setFormat("")
+        self.db_bar_34.setFormat("")
+        self.db_bar_35.setFormat("")
+        self.db_bar_36.setFormat("")
+        self.db_bar_37.setFormat("")
+        self.db_bar_38.setFormat("")
+        self.db_bar_39.setFormat("")
+        self.db_bar_40.setFormat("")
+        self.db_bar_41.setFormat("")
+        self.db_bar_42.setFormat("")
+        self.db_bar_43.setFormat("")
+        self.db_bar_44.setFormat("")
+        self.db_bar_45.setFormat("")
+        self.db_bar_46.setFormat("")
+        self.db_bar_47.setFormat("")
+        self.db_bar_48.setFormat("")
+        self.db_bar_49.setFormat("")
+        self.db_bar_50.setFormat("")
+        self.db_bar_51.setFormat("")
+        self.db_bar_52.setFormat("")
+        self.db_bar_53.setFormat("")
+        self.db_bar_54.setFormat("")
+        self.db_bar_55.setFormat("")
+        self.db_bar_56.setFormat("")
+        self.db_bar_57.setFormat("")
+        self.db_bar_58.setFormat("")
+        self.db_bar_59.setFormat("")
+        self.db_bar_60.setFormat("")
+        self.db_bar_61.setFormat("")
+        self.db_bar_62.setFormat("")
+        self.db_bar_63.setFormat("")
+        self.db_bar_64.setFormat("")
+        self.db_bar_65.setFormat("")
+        self.db_bar_66.setFormat("")
+        self.db_bar_67.setFormat("")
+        self.db_bar_68.setFormat("")
+        self.db_bar_69.setFormat("")
+        self.db_bar_70.setFormat("")
         self.music_pic_btn.setText("")
         self.music_name_lab.setText(QCoreApplication.translate("main_music", u"\u6b4c\u540d", None))
         self.music_name_lab.setProperty("max_length", QCoreApplication.translate("main_music", u"8", None))
