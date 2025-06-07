@@ -560,7 +560,7 @@ class Ui_main_music(object):
         self.db_bar_1.setObjectName(u"db_bar_1")
         self.db_bar_1.setMinimumSize(QSize(8, 0))
         self.db_bar_1.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_1.setValue(65)
+        self.db_bar_1.setValue(0)
         self.db_bar_1.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_1)
@@ -569,7 +569,7 @@ class Ui_main_music(object):
         self.db_bar_2.setObjectName(u"db_bar_2")
         self.db_bar_2.setMinimumSize(QSize(8, 0))
         self.db_bar_2.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_2.setValue(65)
+        self.db_bar_2.setValue(0)
         self.db_bar_2.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_2)
@@ -578,7 +578,7 @@ class Ui_main_music(object):
         self.db_bar_3.setObjectName(u"db_bar_3")
         self.db_bar_3.setMinimumSize(QSize(8, 0))
         self.db_bar_3.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_3.setValue(65)
+        self.db_bar_3.setValue(0)
         self.db_bar_3.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_3)
@@ -587,7 +587,7 @@ class Ui_main_music(object):
         self.db_bar_4.setObjectName(u"db_bar_4")
         self.db_bar_4.setMinimumSize(QSize(8, 0))
         self.db_bar_4.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_4.setValue(65)
+        self.db_bar_4.setValue(0)
         self.db_bar_4.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_4)
@@ -596,7 +596,7 @@ class Ui_main_music(object):
         self.db_bar_5.setObjectName(u"db_bar_5")
         self.db_bar_5.setMinimumSize(QSize(8, 0))
         self.db_bar_5.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_5.setValue(65)
+        self.db_bar_5.setValue(0)
         self.db_bar_5.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_5)
@@ -605,7 +605,7 @@ class Ui_main_music(object):
         self.db_bar_6.setObjectName(u"db_bar_6")
         self.db_bar_6.setMinimumSize(QSize(8, 0))
         self.db_bar_6.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_6.setValue(65)
+        self.db_bar_6.setValue(0)
         self.db_bar_6.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_6)
@@ -614,7 +614,7 @@ class Ui_main_music(object):
         self.db_bar_7.setObjectName(u"db_bar_7")
         self.db_bar_7.setMinimumSize(QSize(8, 0))
         self.db_bar_7.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_7.setValue(65)
+        self.db_bar_7.setValue(0)
         self.db_bar_7.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_7)
@@ -623,7 +623,7 @@ class Ui_main_music(object):
         self.db_bar_8.setObjectName(u"db_bar_8")
         self.db_bar_8.setMinimumSize(QSize(8, 0))
         self.db_bar_8.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_8.setValue(65)
+        self.db_bar_8.setValue(0)
         self.db_bar_8.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_8)
@@ -632,7 +632,7 @@ class Ui_main_music(object):
         self.db_bar_9.setObjectName(u"db_bar_9")
         self.db_bar_9.setMinimumSize(QSize(8, 0))
         self.db_bar_9.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_9.setValue(65)
+        self.db_bar_9.setValue(0)
         self.db_bar_9.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_9)
@@ -641,7 +641,7 @@ class Ui_main_music(object):
         self.db_bar_10.setObjectName(u"db_bar_10")
         self.db_bar_10.setMinimumSize(QSize(8, 0))
         self.db_bar_10.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_10.setValue(65)
+        self.db_bar_10.setValue(0)
         self.db_bar_10.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_10)
@@ -650,7 +650,7 @@ class Ui_main_music(object):
         self.db_bar_11.setObjectName(u"db_bar_11")
         self.db_bar_11.setMinimumSize(QSize(8, 0))
         self.db_bar_11.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_11.setValue(65)
+        self.db_bar_11.setValue(0)
         self.db_bar_11.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_11)
@@ -659,7 +659,7 @@ class Ui_main_music(object):
         self.db_bar_12.setObjectName(u"db_bar_12")
         self.db_bar_12.setMinimumSize(QSize(8, 0))
         self.db_bar_12.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_12.setValue(65)
+        self.db_bar_12.setValue(0)
         self.db_bar_12.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_12)
@@ -668,7 +668,7 @@ class Ui_main_music(object):
         self.db_bar_13.setObjectName(u"db_bar_13")
         self.db_bar_13.setMinimumSize(QSize(8, 0))
         self.db_bar_13.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_13.setValue(65)
+        self.db_bar_13.setValue(0)
         self.db_bar_13.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_13)
@@ -677,7 +677,7 @@ class Ui_main_music(object):
         self.db_bar_14.setObjectName(u"db_bar_14")
         self.db_bar_14.setMinimumSize(QSize(8, 0))
         self.db_bar_14.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_14.setValue(65)
+        self.db_bar_14.setValue(0)
         self.db_bar_14.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_14)
@@ -686,7 +686,7 @@ class Ui_main_music(object):
         self.db_bar_15.setObjectName(u"db_bar_15")
         self.db_bar_15.setMinimumSize(QSize(8, 0))
         self.db_bar_15.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_15.setValue(65)
+        self.db_bar_15.setValue(0)
         self.db_bar_15.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_15)
@@ -695,7 +695,7 @@ class Ui_main_music(object):
         self.db_bar_16.setObjectName(u"db_bar_16")
         self.db_bar_16.setMinimumSize(QSize(8, 0))
         self.db_bar_16.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_16.setValue(65)
+        self.db_bar_16.setValue(0)
         self.db_bar_16.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_16)
@@ -704,7 +704,7 @@ class Ui_main_music(object):
         self.db_bar_17.setObjectName(u"db_bar_17")
         self.db_bar_17.setMinimumSize(QSize(8, 0))
         self.db_bar_17.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_17.setValue(65)
+        self.db_bar_17.setValue(0)
         self.db_bar_17.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_17)
@@ -713,7 +713,7 @@ class Ui_main_music(object):
         self.db_bar_18.setObjectName(u"db_bar_18")
         self.db_bar_18.setMinimumSize(QSize(8, 0))
         self.db_bar_18.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_18.setValue(65)
+        self.db_bar_18.setValue(0)
         self.db_bar_18.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_18)
@@ -722,7 +722,7 @@ class Ui_main_music(object):
         self.db_bar_19.setObjectName(u"db_bar_19")
         self.db_bar_19.setMinimumSize(QSize(8, 0))
         self.db_bar_19.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_19.setValue(65)
+        self.db_bar_19.setValue(0)
         self.db_bar_19.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_19)
@@ -731,7 +731,7 @@ class Ui_main_music(object):
         self.db_bar_20.setObjectName(u"db_bar_20")
         self.db_bar_20.setMinimumSize(QSize(8, 0))
         self.db_bar_20.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_20.setValue(65)
+        self.db_bar_20.setValue(0)
         self.db_bar_20.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_20)
@@ -740,7 +740,7 @@ class Ui_main_music(object):
         self.db_bar_21.setObjectName(u"db_bar_21")
         self.db_bar_21.setMinimumSize(QSize(8, 0))
         self.db_bar_21.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_21.setValue(65)
+        self.db_bar_21.setValue(0)
         self.db_bar_21.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_21)
@@ -749,7 +749,7 @@ class Ui_main_music(object):
         self.db_bar_22.setObjectName(u"db_bar_22")
         self.db_bar_22.setMinimumSize(QSize(8, 0))
         self.db_bar_22.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_22.setValue(65)
+        self.db_bar_22.setValue(0)
         self.db_bar_22.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_22)
@@ -758,7 +758,7 @@ class Ui_main_music(object):
         self.db_bar_23.setObjectName(u"db_bar_23")
         self.db_bar_23.setMinimumSize(QSize(8, 0))
         self.db_bar_23.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_23.setValue(65)
+        self.db_bar_23.setValue(0)
         self.db_bar_23.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_23)
@@ -767,7 +767,7 @@ class Ui_main_music(object):
         self.db_bar_24.setObjectName(u"db_bar_24")
         self.db_bar_24.setMinimumSize(QSize(8, 0))
         self.db_bar_24.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_24.setValue(65)
+        self.db_bar_24.setValue(0)
         self.db_bar_24.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_24)
@@ -776,7 +776,7 @@ class Ui_main_music(object):
         self.db_bar_25.setObjectName(u"db_bar_25")
         self.db_bar_25.setMinimumSize(QSize(8, 0))
         self.db_bar_25.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_25.setValue(65)
+        self.db_bar_25.setValue(0)
         self.db_bar_25.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_25)
@@ -785,7 +785,7 @@ class Ui_main_music(object):
         self.db_bar_26.setObjectName(u"db_bar_26")
         self.db_bar_26.setMinimumSize(QSize(8, 0))
         self.db_bar_26.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_26.setValue(65)
+        self.db_bar_26.setValue(0)
         self.db_bar_26.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_26)
@@ -794,7 +794,7 @@ class Ui_main_music(object):
         self.db_bar_27.setObjectName(u"db_bar_27")
         self.db_bar_27.setMinimumSize(QSize(8, 0))
         self.db_bar_27.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_27.setValue(65)
+        self.db_bar_27.setValue(0)
         self.db_bar_27.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_27)
@@ -803,7 +803,7 @@ class Ui_main_music(object):
         self.db_bar_28.setObjectName(u"db_bar_28")
         self.db_bar_28.setMinimumSize(QSize(8, 0))
         self.db_bar_28.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_28.setValue(65)
+        self.db_bar_28.setValue(0)
         self.db_bar_28.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_28)
@@ -812,7 +812,7 @@ class Ui_main_music(object):
         self.db_bar_29.setObjectName(u"db_bar_29")
         self.db_bar_29.setMinimumSize(QSize(8, 0))
         self.db_bar_29.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_29.setValue(65)
+        self.db_bar_29.setValue(0)
         self.db_bar_29.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_29)
@@ -821,7 +821,7 @@ class Ui_main_music(object):
         self.db_bar_30.setObjectName(u"db_bar_30")
         self.db_bar_30.setMinimumSize(QSize(8, 0))
         self.db_bar_30.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_30.setValue(65)
+        self.db_bar_30.setValue(0)
         self.db_bar_30.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_30)
@@ -830,7 +830,7 @@ class Ui_main_music(object):
         self.db_bar_31.setObjectName(u"db_bar_31")
         self.db_bar_31.setMinimumSize(QSize(8, 0))
         self.db_bar_31.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_31.setValue(65)
+        self.db_bar_31.setValue(0)
         self.db_bar_31.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_31)
@@ -839,7 +839,7 @@ class Ui_main_music(object):
         self.db_bar_32.setObjectName(u"db_bar_32")
         self.db_bar_32.setMinimumSize(QSize(8, 0))
         self.db_bar_32.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_32.setValue(65)
+        self.db_bar_32.setValue(0)
         self.db_bar_32.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_32)
@@ -848,7 +848,7 @@ class Ui_main_music(object):
         self.db_bar_33.setObjectName(u"db_bar_33")
         self.db_bar_33.setMinimumSize(QSize(8, 0))
         self.db_bar_33.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_33.setValue(65)
+        self.db_bar_33.setValue(0)
         self.db_bar_33.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_33)
@@ -857,7 +857,7 @@ class Ui_main_music(object):
         self.db_bar_34.setObjectName(u"db_bar_34")
         self.db_bar_34.setMinimumSize(QSize(8, 0))
         self.db_bar_34.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_34.setValue(65)
+        self.db_bar_34.setValue(0)
         self.db_bar_34.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_34)
@@ -866,7 +866,7 @@ class Ui_main_music(object):
         self.db_bar_35.setObjectName(u"db_bar_35")
         self.db_bar_35.setMinimumSize(QSize(8, 0))
         self.db_bar_35.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_35.setValue(65)
+        self.db_bar_35.setValue(0)
         self.db_bar_35.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_35)
@@ -875,7 +875,7 @@ class Ui_main_music(object):
         self.db_bar_36.setObjectName(u"db_bar_36")
         self.db_bar_36.setMinimumSize(QSize(8, 0))
         self.db_bar_36.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_36.setValue(65)
+        self.db_bar_36.setValue(0)
         self.db_bar_36.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_36)
@@ -884,7 +884,7 @@ class Ui_main_music(object):
         self.db_bar_37.setObjectName(u"db_bar_37")
         self.db_bar_37.setMinimumSize(QSize(8, 0))
         self.db_bar_37.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_37.setValue(65)
+        self.db_bar_37.setValue(0)
         self.db_bar_37.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_37)
@@ -893,7 +893,7 @@ class Ui_main_music(object):
         self.db_bar_38.setObjectName(u"db_bar_38")
         self.db_bar_38.setMinimumSize(QSize(8, 0))
         self.db_bar_38.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_38.setValue(65)
+        self.db_bar_38.setValue(0)
         self.db_bar_38.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_38)
@@ -902,7 +902,7 @@ class Ui_main_music(object):
         self.db_bar_39.setObjectName(u"db_bar_39")
         self.db_bar_39.setMinimumSize(QSize(8, 0))
         self.db_bar_39.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_39.setValue(65)
+        self.db_bar_39.setValue(0)
         self.db_bar_39.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_39)
@@ -911,7 +911,7 @@ class Ui_main_music(object):
         self.db_bar_40.setObjectName(u"db_bar_40")
         self.db_bar_40.setMinimumSize(QSize(8, 0))
         self.db_bar_40.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_40.setValue(65)
+        self.db_bar_40.setValue(0)
         self.db_bar_40.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_40)
@@ -920,7 +920,7 @@ class Ui_main_music(object):
         self.db_bar_41.setObjectName(u"db_bar_41")
         self.db_bar_41.setMinimumSize(QSize(8, 0))
         self.db_bar_41.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_41.setValue(65)
+        self.db_bar_41.setValue(0)
         self.db_bar_41.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_41)
@@ -929,7 +929,7 @@ class Ui_main_music(object):
         self.db_bar_42.setObjectName(u"db_bar_42")
         self.db_bar_42.setMinimumSize(QSize(8, 0))
         self.db_bar_42.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_42.setValue(65)
+        self.db_bar_42.setValue(0)
         self.db_bar_42.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_42)
@@ -938,7 +938,7 @@ class Ui_main_music(object):
         self.db_bar_43.setObjectName(u"db_bar_43")
         self.db_bar_43.setMinimumSize(QSize(8, 0))
         self.db_bar_43.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_43.setValue(65)
+        self.db_bar_43.setValue(0)
         self.db_bar_43.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_43)
@@ -947,7 +947,7 @@ class Ui_main_music(object):
         self.db_bar_44.setObjectName(u"db_bar_44")
         self.db_bar_44.setMinimumSize(QSize(8, 0))
         self.db_bar_44.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_44.setValue(65)
+        self.db_bar_44.setValue(0)
         self.db_bar_44.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_44)
@@ -956,7 +956,7 @@ class Ui_main_music(object):
         self.db_bar_45.setObjectName(u"db_bar_45")
         self.db_bar_45.setMinimumSize(QSize(8, 0))
         self.db_bar_45.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_45.setValue(65)
+        self.db_bar_45.setValue(0)
         self.db_bar_45.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_45)
@@ -965,7 +965,7 @@ class Ui_main_music(object):
         self.db_bar_46.setObjectName(u"db_bar_46")
         self.db_bar_46.setMinimumSize(QSize(8, 0))
         self.db_bar_46.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_46.setValue(65)
+        self.db_bar_46.setValue(0)
         self.db_bar_46.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_46)
@@ -974,7 +974,7 @@ class Ui_main_music(object):
         self.db_bar_47.setObjectName(u"db_bar_47")
         self.db_bar_47.setMinimumSize(QSize(8, 0))
         self.db_bar_47.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_47.setValue(65)
+        self.db_bar_47.setValue(0)
         self.db_bar_47.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_47)
@@ -983,7 +983,7 @@ class Ui_main_music(object):
         self.db_bar_48.setObjectName(u"db_bar_48")
         self.db_bar_48.setMinimumSize(QSize(8, 0))
         self.db_bar_48.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_48.setValue(65)
+        self.db_bar_48.setValue(0)
         self.db_bar_48.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_48)
@@ -992,7 +992,7 @@ class Ui_main_music(object):
         self.db_bar_49.setObjectName(u"db_bar_49")
         self.db_bar_49.setMinimumSize(QSize(8, 0))
         self.db_bar_49.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_49.setValue(65)
+        self.db_bar_49.setValue(0)
         self.db_bar_49.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_49)
@@ -1001,7 +1001,7 @@ class Ui_main_music(object):
         self.db_bar_50.setObjectName(u"db_bar_50")
         self.db_bar_50.setMinimumSize(QSize(8, 0))
         self.db_bar_50.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_50.setValue(65)
+        self.db_bar_50.setValue(0)
         self.db_bar_50.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_50)
@@ -1010,7 +1010,7 @@ class Ui_main_music(object):
         self.db_bar_51.setObjectName(u"db_bar_51")
         self.db_bar_51.setMinimumSize(QSize(8, 0))
         self.db_bar_51.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_51.setValue(65)
+        self.db_bar_51.setValue(0)
         self.db_bar_51.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_51)
@@ -1019,7 +1019,7 @@ class Ui_main_music(object):
         self.db_bar_52.setObjectName(u"db_bar_52")
         self.db_bar_52.setMinimumSize(QSize(8, 0))
         self.db_bar_52.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_52.setValue(65)
+        self.db_bar_52.setValue(0)
         self.db_bar_52.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_52)
@@ -1028,7 +1028,7 @@ class Ui_main_music(object):
         self.db_bar_53.setObjectName(u"db_bar_53")
         self.db_bar_53.setMinimumSize(QSize(8, 0))
         self.db_bar_53.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_53.setValue(65)
+        self.db_bar_53.setValue(0)
         self.db_bar_53.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_53)
@@ -1037,7 +1037,7 @@ class Ui_main_music(object):
         self.db_bar_54.setObjectName(u"db_bar_54")
         self.db_bar_54.setMinimumSize(QSize(8, 0))
         self.db_bar_54.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_54.setValue(65)
+        self.db_bar_54.setValue(0)
         self.db_bar_54.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_54)
@@ -1046,7 +1046,7 @@ class Ui_main_music(object):
         self.db_bar_55.setObjectName(u"db_bar_55")
         self.db_bar_55.setMinimumSize(QSize(8, 0))
         self.db_bar_55.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_55.setValue(65)
+        self.db_bar_55.setValue(0)
         self.db_bar_55.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_55)
@@ -1055,7 +1055,7 @@ class Ui_main_music(object):
         self.db_bar_56.setObjectName(u"db_bar_56")
         self.db_bar_56.setMinimumSize(QSize(8, 0))
         self.db_bar_56.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_56.setValue(65)
+        self.db_bar_56.setValue(0)
         self.db_bar_56.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_56)
@@ -1064,7 +1064,7 @@ class Ui_main_music(object):
         self.db_bar_57.setObjectName(u"db_bar_57")
         self.db_bar_57.setMinimumSize(QSize(8, 0))
         self.db_bar_57.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_57.setValue(65)
+        self.db_bar_57.setValue(0)
         self.db_bar_57.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_57)
@@ -1073,7 +1073,7 @@ class Ui_main_music(object):
         self.db_bar_58.setObjectName(u"db_bar_58")
         self.db_bar_58.setMinimumSize(QSize(8, 0))
         self.db_bar_58.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_58.setValue(65)
+        self.db_bar_58.setValue(0)
         self.db_bar_58.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_58)
@@ -1082,7 +1082,7 @@ class Ui_main_music(object):
         self.db_bar_59.setObjectName(u"db_bar_59")
         self.db_bar_59.setMinimumSize(QSize(8, 0))
         self.db_bar_59.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_59.setValue(65)
+        self.db_bar_59.setValue(0)
         self.db_bar_59.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_59)
@@ -1091,7 +1091,7 @@ class Ui_main_music(object):
         self.db_bar_60.setObjectName(u"db_bar_60")
         self.db_bar_60.setMinimumSize(QSize(8, 0))
         self.db_bar_60.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_60.setValue(65)
+        self.db_bar_60.setValue(0)
         self.db_bar_60.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_60)
@@ -1100,7 +1100,7 @@ class Ui_main_music(object):
         self.db_bar_61.setObjectName(u"db_bar_61")
         self.db_bar_61.setMinimumSize(QSize(8, 0))
         self.db_bar_61.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_61.setValue(65)
+        self.db_bar_61.setValue(0)
         self.db_bar_61.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_61)
@@ -1109,7 +1109,7 @@ class Ui_main_music(object):
         self.db_bar_62.setObjectName(u"db_bar_62")
         self.db_bar_62.setMinimumSize(QSize(8, 0))
         self.db_bar_62.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_62.setValue(65)
+        self.db_bar_62.setValue(0)
         self.db_bar_62.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_62)
@@ -1118,7 +1118,7 @@ class Ui_main_music(object):
         self.db_bar_63.setObjectName(u"db_bar_63")
         self.db_bar_63.setMinimumSize(QSize(8, 0))
         self.db_bar_63.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_63.setValue(65)
+        self.db_bar_63.setValue(0)
         self.db_bar_63.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_63)
@@ -1127,7 +1127,7 @@ class Ui_main_music(object):
         self.db_bar_64.setObjectName(u"db_bar_64")
         self.db_bar_64.setMinimumSize(QSize(8, 0))
         self.db_bar_64.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_64.setValue(65)
+        self.db_bar_64.setValue(0)
         self.db_bar_64.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_64)
@@ -1136,7 +1136,7 @@ class Ui_main_music(object):
         self.db_bar_65.setObjectName(u"db_bar_65")
         self.db_bar_65.setMinimumSize(QSize(8, 0))
         self.db_bar_65.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_65.setValue(65)
+        self.db_bar_65.setValue(0)
         self.db_bar_65.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_65)
@@ -1145,7 +1145,7 @@ class Ui_main_music(object):
         self.db_bar_66.setObjectName(u"db_bar_66")
         self.db_bar_66.setMinimumSize(QSize(8, 0))
         self.db_bar_66.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_66.setValue(65)
+        self.db_bar_66.setValue(0)
         self.db_bar_66.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_66)
@@ -1154,7 +1154,7 @@ class Ui_main_music(object):
         self.db_bar_67.setObjectName(u"db_bar_67")
         self.db_bar_67.setMinimumSize(QSize(8, 0))
         self.db_bar_67.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_67.setValue(65)
+        self.db_bar_67.setValue(0)
         self.db_bar_67.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_67)
@@ -1163,7 +1163,7 @@ class Ui_main_music(object):
         self.db_bar_68.setObjectName(u"db_bar_68")
         self.db_bar_68.setMinimumSize(QSize(8, 0))
         self.db_bar_68.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_68.setValue(65)
+        self.db_bar_68.setValue(0)
         self.db_bar_68.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_68)
@@ -1172,7 +1172,7 @@ class Ui_main_music(object):
         self.db_bar_69.setObjectName(u"db_bar_69")
         self.db_bar_69.setMinimumSize(QSize(8, 0))
         self.db_bar_69.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_69.setValue(65)
+        self.db_bar_69.setValue(0)
         self.db_bar_69.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_69)
@@ -1181,7 +1181,7 @@ class Ui_main_music(object):
         self.db_bar_70.setObjectName(u"db_bar_70")
         self.db_bar_70.setMinimumSize(QSize(8, 0))
         self.db_bar_70.setMaximumSize(QSize(8, 16777215))
-        self.db_bar_70.setValue(65)
+        self.db_bar_70.setValue(0)
         self.db_bar_70.setOrientation(Qt.Orientation.Vertical)
 
         self.horizontalLayout_8.addWidget(self.db_bar_70)

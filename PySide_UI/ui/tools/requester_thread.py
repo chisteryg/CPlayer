@@ -214,7 +214,7 @@ class SaveSong(QThread):
 
     def run(self):
         """下载非vip单曲"""
-        song_info = self.cloud.save_song(song_id=self.song_id)
+        song_info = self.cloud.save_song_v2(song_id=self.song_id)
         self.save_song_finished.emit(song_info)
         self.finished.emit()
         return

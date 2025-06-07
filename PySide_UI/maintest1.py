@@ -10,7 +10,6 @@ from PySide6.QtWidgets import *
 from PySide_UI.tools.NeteaseCloudMusic_API.httpx_api_2 import NeteaseCloudMusicAPI
 from PySide_UI.tools.player.palyer import MusicPlayer
 from PySide_UI.ui import main_v2, main1
-from PySide_UI.ui.tools.base.animatebar import AnimatedBar
 from PySide_UI.ui.tools.requester_thread import *
 from PySide_UI.ui.tools.sub_page.Message import MessagePage
 from PySide_UI.ui.tools.sub_page.MiniPage import MiniPage
@@ -1103,7 +1102,7 @@ class MyForm(QWidget, main_v2.Ui_main_music):
             i = 1
             for key in result.keys():
                 self.animate_bars[i].setValue(result[key]['db'] * 4)
-                i +=1
+                i += 1
         else:
             # 使用振幅amplitude
             i = 1

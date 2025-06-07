@@ -87,7 +87,7 @@ class MusicPlayer(QMediaPlayer):
 
     def analyze_audio(self, target_time_ms: int, target_freqs: list[int] = []):
         """
-        分析音频文件中指定时刻的多个频率成分
+        分析音频文件中指定时刻的多个频率成分，返回频率对应的振幅和分贝
         :param audio_path: MP3文件路径
         :param target_time_ms: 目标时间（毫秒）
         :param target_freqs: 目标频率列表（Hz）
