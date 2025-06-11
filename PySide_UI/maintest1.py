@@ -559,9 +559,10 @@ class MyForm(QWidget, main_v2.Ui_main_music):
         return
 
     def update_ui(self, music_info):
-        # pprint(music_info)
+        pprint(music_info)
         # 更新界面
-        if music_info:
+        if music_info['music_save_path'] is None:
+            # 音乐保存路径为空，加载失败
             self.msg_page = MessagePage('加载失败', f'音乐加载失败，请重新加载音乐')
             return
 
