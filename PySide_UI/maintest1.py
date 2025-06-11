@@ -561,6 +561,9 @@ class MyForm(QWidget, main_v2.Ui_main_music):
     def update_ui(self, music_info):
         # pprint(music_info)
         # 更新界面
+        if music_info:
+            self.msg_page = MessagePage('加载失败', f'音乐加载失败，请重新加载音乐')
+            return
 
         # 设置基本信息
         self.set_music_info(music_info)

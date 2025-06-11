@@ -1,6 +1,5 @@
 import sys
 import time
-from pprint import pprint
 
 import librosa
 import numpy as np
