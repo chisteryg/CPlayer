@@ -28,7 +28,9 @@
   <property name="styleSheet">
    <string notr="true">QWidget#settings{
 	background: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #EEAECA, stop: 1 #94BBE9);
+	background-color: #A3BCE6;
 	border: 2px solid white;
+	border: none;
 }
 *{
 	background-color: transparent;

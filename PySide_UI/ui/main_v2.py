@@ -28,8 +28,8 @@ class Ui_main_music(object):
     def setupUi(self, main_music):
         if not main_music.objectName():
             main_music.setObjectName(u"main_music")
-        main_music.resize(1100, 800)
-        main_music.setMinimumSize(QSize(1100, 800))
+        main_music.resize(1100, 850)
+        main_music.setMinimumSize(QSize(1100, 850))
         main_music.setStyleSheet(u"QWidget#main_music{\n"
 "	background: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #EEAECA, stop: 1 #94BBE9);\n"
 "	border-radius: 10px;\n"
@@ -516,7 +516,7 @@ class Ui_main_music(object):
         self.lyric_scroll_area.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 1060, 338))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 1060, 388))
         self.verticalLayout_12 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.verticalLayout_12.setContentsMargins(15, 15, 15, 15)

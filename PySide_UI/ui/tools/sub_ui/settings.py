@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'settings.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.3
+## Created by: Qt User Interface Compiler version 6.7.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -31,7 +31,9 @@ class Ui_settings(object):
         settings.setMaximumSize(QSize(600, 500))
         settings.setStyleSheet(u"QWidget#settings{\n"
 "	background: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #EEAECA, stop: 1 #94BBE9);\n"
+"	background-color: #A3BCE6;\n"
 "	border: 2px solid white;\n"
+"	border: none;\n"
 "}\n"
 "*{\n"
 "	background-color: transparent;\n"
@@ -71,10 +73,10 @@ class Ui_settings(object):
 "	padding: 5px;\n"
 "	background-color: transparent;\n"
 "	color: #fff8ea;\n"
-"	border: 2px solid white;\n"
+"	border: 2px sol"
+                        "id white;\n"
 "	font-size: 18px;\n"
-"	font-weight: 7"
-                        "00;\n"
+"	font-weight: 700;\n"
 "	font-family: ZCOOL KuaiLe;\n"
 "}\n"
 "/*cookies\u6587\u672c\u7f16\u8f91\u5668\u683c\u5f0f*/\n"
@@ -116,10 +118,10 @@ class Ui_settings(object):
 "	border: 2px solid white;\n"
 "	border-radius: 5px;\n"
 "}\n"
-"[save]:hover{\n"
+"[save]:hover"
+                        "{\n"
 "	color: #DE76A3;\n"
-"	background-color: rgba("
-                        "255, 255, 255, 0.3);\n"
+"	background-color: rgba(255, 255, 255, 0.3);\n"
 "	margin: 2px;\n"
 "}\n"
 "[save]:pressed{\n"
@@ -150,11 +152,11 @@ class Ui_settings(object):
 "	width: 4px;\n"
 "	border-radius: 2px;\n"
 "	/*background-color: #84ACD9;*/\n"
-"	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #639AD4, stop: 1 #DE76A3);\n"
+"	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #639AD4, stop: 1 #DE76A"
+                        "3);\n"
 "}\n"
 "QScrollBar::handle:hover{\n"
-"	/*back"
-                        "ground-color: #75ACEB;*/\n"
+"	/*background-color: #75ACEB;*/\n"
 "	background-color: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0, stop: 0 #639AD4, stop: 1 #DE76A3);\n"
 "}\n"
 "QScrollBar:vertical {\n"
@@ -398,13 +400,13 @@ class Ui_settings(object):
         self.title_lab.setText(QCoreApplication.translate("settings", u"\u8bbe\u7f6e", None))
         self.close_btn.setText("")
         self.save_path_title_lab.setText(QCoreApplication.translate("settings", u"\u97f3\u4e50\u4e0b\u8f7d\u8def\u5f84\uff1a", None))
-        self.save_path_title_lab.setProperty(u"title", QCoreApplication.translate("settings", u"-1", None))
+        self.save_path_title_lab.setProperty("title", QCoreApplication.translate("settings", u"-1", None))
         self.save_path_lab.setText(QCoreApplication.translate("settings", u"C:/", None))
-        self.save_path_lab.setProperty(u"content", QCoreApplication.translate("settings", u"-1", None))
+        self.save_path_lab.setProperty("content", QCoreApplication.translate("settings", u"-1", None))
         self.path_btn.setText("")
-        self.path_btn.setProperty(u"content_btn", QCoreApplication.translate("settings", u"-1", None))
+        self.path_btn.setProperty("content_btn", QCoreApplication.translate("settings", u"-1", None))
         self.cookies_title_lab.setText(QCoreApplication.translate("settings", u"Cookies\uff1a", None))
-        self.cookies_title_lab.setProperty(u"title", QCoreApplication.translate("settings", u"-1", None))
+        self.cookies_title_lab.setProperty("title", QCoreApplication.translate("settings", u"-1", None))
         self.cookies_textEdit.setHtml(QCoreApplication.translate("settings", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -414,26 +416,26 @@ class Ui_settings(object):
 "</style></head><body style=\" font-family:'ZCOOL KuaiLe'; font-size:18px; font-weight:700; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None))
         self.material_citation_title_lab.setText(QCoreApplication.translate("settings", u"\u7d20\u6750\u5f15\u7528\uff1a", None))
-        self.material_citation_title_lab.setProperty(u"title", QCoreApplication.translate("settings", u"-1", None))
+        self.material_citation_title_lab.setProperty("title", QCoreApplication.translate("settings", u"-1", None))
         self.citation_lab_1.setText(QCoreApplication.translate("settings", u"\u97f3\u4e50\uff1ahttps://music.163.com/", None))
-        self.citation_lab_1.setProperty(u"content", QCoreApplication.translate("settings", u"-1", None))
+        self.citation_lab_1.setProperty("content", QCoreApplication.translate("settings", u"-1", None))
         self.citation_lab_2.setText(QCoreApplication.translate("settings", u"\u56fe\u6807\uff1ahttps://www.iconfont.cn/", None))
-        self.citation_lab_2.setProperty(u"content", QCoreApplication.translate("settings", u"-1", None))
+        self.citation_lab_2.setProperty("content", QCoreApplication.translate("settings", u"-1", None))
         self.save_path_title_lab_4.setText(QCoreApplication.translate("settings", u"\u7b2c\u4e09\u65b9\u6a21\u5757\u5f15\u7528\uff1a", None))
-        self.save_path_title_lab_4.setProperty(u"title", QCoreApplication.translate("settings", u"-1", None))
+        self.save_path_title_lab_4.setProperty("title", QCoreApplication.translate("settings", u"-1", None))
         self.citation_lab_3.setText(QCoreApplication.translate("settings", u"PySide6\uff1ahttps://pypi.org/project/PySide6/", None))
-        self.citation_lab_3.setProperty(u"content", QCoreApplication.translate("settings", u"-1", None))
+        self.citation_lab_3.setProperty("content", QCoreApplication.translate("settings", u"-1", None))
         self.citation_lab_4.setText(QCoreApplication.translate("settings", u"httpx\uff1ahttps://www.python-httpx.org/", None))
-        self.citation_lab_4.setProperty(u"content", QCoreApplication.translate("settings", u"-1", None))
+        self.citation_lab_4.setProperty("content", QCoreApplication.translate("settings", u"-1", None))
         self.github_title_lab.setText(QCoreApplication.translate("settings", u"github", None))
-        self.github_title_lab.setProperty(u"title", QCoreApplication.translate("settings", u"-1", None))
+        self.github_title_lab.setProperty("title", QCoreApplication.translate("settings", u"-1", None))
         self.github_lab.setText(QCoreApplication.translate("settings", u"github\uff1ahttps://github.com/chisteryg", None))
-        self.github_lab.setProperty(u"content", QCoreApplication.translate("settings", u"-1", None))
+        self.github_lab.setProperty("content", QCoreApplication.translate("settings", u"-1", None))
         self.github_btn.setText("")
-        self.github_btn.setProperty(u"content_btn", QCoreApplication.translate("settings", u"-1", None))
+        self.github_btn.setProperty("content_btn", QCoreApplication.translate("settings", u"-1", None))
         self.save_btn.setText(QCoreApplication.translate("settings", u"\u4fdd\u5b58", None))
-        self.save_btn.setProperty(u"save", QCoreApplication.translate("settings", u"-1", None))
+        self.save_btn.setProperty("save", QCoreApplication.translate("settings", u"-1", None))
         self.cancal_btn.setText(QCoreApplication.translate("settings", u"\u53d6\u6d88", None))
-        self.cancal_btn.setProperty(u"save", QCoreApplication.translate("settings", u"-1", None))
+        self.cancal_btn.setProperty("save", QCoreApplication.translate("settings", u"-1", None))
     # retranslateUi
 

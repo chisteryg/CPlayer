@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'msg.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.3
+## Created by: Qt User Interface Compiler version 6.7.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -30,16 +30,19 @@ class Ui_msg(object):
         msg.setMaximumSize(QSize(480, 370))
         msg.setStyleSheet(u"QWidget#msg{\n"
 "	background: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #EEAECA, stop: 1 #94BBE9);\n"
+"	background-color: #A3BCE6;\n"
 "}\n"
 "*{\n"
 "	background-color: transparent;\n"
 "	color: #fff8ea;\n"
-"	border: 2px solid white;\n"
+"	/*border: 2px solid white;*/\n"
 "	font-size: 16px;\n"
 "	font-weight: 700;\n"
 "	font-family: ZCOOL KuaiLe;\n"
 "}\n"
-"\n"
+"#move_widget{\n"
+"	border-bottom: 2px solid white;\n"
+"}\n"
 "#title_lab{\n"
 "	padding-left: 5px;\n"
 "	font-size: 23px;\n"
@@ -61,6 +64,7 @@ class Ui_msg(object):
 "}\n"
 "\n"
 "#ok_btn{\n"
+"	border: 2px solid white;\n"
 "	border-radius: 5px;\n"
 "}\n"
 "#ok_btn:hover{\n"
@@ -74,12 +78,12 @@ class Ui_msg(object):
         self.verticalLayout_2 = QVBoxLayout(msg)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.widget = MoveWidget(msg)
-        self.widget.setObjectName(u"widget")
-        self.widget.setMinimumSize(QSize(0, 40))
-        self.horizontalLayout = QHBoxLayout(self.widget)
+        self.move_widget = MoveWidget(msg)
+        self.move_widget.setObjectName(u"move_widget")
+        self.move_widget.setMinimumSize(QSize(0, 40))
+        self.horizontalLayout = QHBoxLayout(self.move_widget)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.title_lab = QLabel(self.widget)
+        self.title_lab = QLabel(self.move_widget)
         self.title_lab.setObjectName(u"title_lab")
 
         self.horizontalLayout.addWidget(self.title_lab)
@@ -88,7 +92,7 @@ class Ui_msg(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
-        self.close_btn = QPushButton(self.widget)
+        self.close_btn = QPushButton(self.move_widget)
         self.close_btn.setObjectName(u"close_btn")
         self.close_btn.setMinimumSize(QSize(30, 30))
         self.close_btn.setMaximumSize(QSize(30, 30))
@@ -96,7 +100,7 @@ class Ui_msg(object):
         self.horizontalLayout.addWidget(self.close_btn)
 
 
-        self.verticalLayout_2.addWidget(self.widget)
+        self.verticalLayout_2.addWidget(self.move_widget)
 
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")

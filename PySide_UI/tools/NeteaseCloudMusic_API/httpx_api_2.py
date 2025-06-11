@@ -373,13 +373,33 @@ class NeteaseCloudMusicAPI:
         detail = self.song_detail(song_id)
         result['song_detail'] = detail['data']
 
-        # 下载
-        url = f'http://music.163.com/song/media/outer/url?id={song_id}.mp3'
-        # 生成音乐存放目录
-        self.generate_dir(self.MusicDir)
-        music_path = self.MusicDir + f'/{song_id}.mp3'
-        # 流式下载
-        music_path = self.async_function(self.async_download_large_file(url=url, save_path=music_path))
+
+        # 通过接口方式获取高品质音乐下载地址
+        # 音乐下载地址，level代表音质等级，encodeType代表编码类型，flac可存储无损音质，目前无法下载无损音乐
+        # 音质 standard标准 higher较高 exhigh极高 lossless无损 hires
+        # 编码类型 aac flac
+        # url = f'https://music.163.com/api/song/enhance/player/url/v1?ids=[{song_id}]&level=hires&encodeType=flac'
+        url = f'https://music.163.com/api/song/enhance/player/url/v1?ids=[{song_id}]&level=exhigh&encodeType=acc'
+        download_url = json.loads(self.async_function(self.get_url(url=url))['data'].text)
+        music_path = None
+        pprint(download_url)
+        if download_url['code'] == 200:
+            # 接口获取成功
+            # 音乐类型
+            music_type = download_url['data'][0]['type']
+            # 下载地址
+            url = download_url['data'][0]['url']
+            url.replace('http', 'https')
+            music_path = self.MusicDir + f'/{song_id}.{music_type}'
+            # 流式下载
+            music_path = self.async_function(self.async_download_large_file(url=url, save_path=music_path))
+            # 音乐时长
+            result['dt'] = download_url['data'][0]['time']
+            # 音质
+            result['level'] = download_url['data'][0]['level']
+            # 比特率
+            result['br'] = download_url['data'][0]['br']
+
         result['music_save_path'] = music_path
 
         return result
@@ -434,16 +454,7 @@ class NeteaseCloudMusicAPI:
             f.write(lrc)
         result['lrc_save_path'] = lrc_path
 
-        # 下载音乐
-        # 通过接口获取下载链接
-        # url = 'https://music.163.com/api/song/enhance/player/url/v1'
-        # data = {
-        #     "ids": f"[{song_id}]",
-        #     # 使用最高品质，返回最高可用音质
-        #     "level": "exhigh",
-        #     "encodeType": "acc",
-        #     "csrf_token": "cba41d846b1d054808bbcd2d04ae451c",
-        # }
+        # 通过接口获取高品质音乐下载地址
         url = f'https://music.163.com/api/song/enhance/player/url/v1?ids=[{song_id}]&level=hires&encodeType=flac'
         download_url = json.loads(self.async_function(self.get_url(url=url))['data'].text)
         music_path = None
@@ -899,7 +910,7 @@ class NeteaseCloudMusicAPI:
     timeout = 10
     MusicDir = './music'
     PicDir = './pic/'
-    ChunkSize = 1024 * 1024 * 5
+    ChunkSize = 1024 * 1024 * 1024
 
     '''https://music.163.com/api/w/user/safe/bindings/495748490'''
 
