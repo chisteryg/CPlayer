@@ -967,6 +967,11 @@ class NeteaseCloudMusicAPI:
                 result['data'] = None
         return result
 
+    def cloud_upload(self, mvid: str = '522365') -> dict:
+
+
+        return {}
+
     def cloud_del(self, song_id: str) -> dict:
         # 删除云盘音乐
         url = f'https://music.163.com//api/cloud/del?songIds=[{song_id}]'
