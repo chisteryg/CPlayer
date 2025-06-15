@@ -559,7 +559,6 @@ class MyForm(QWidget, main_v2.Ui_main_music):
         return
 
     def update_ui(self, music_info):
-        pprint(music_info)
         # 更新界面
         if music_info['music_save_path'] is None:
             # 音乐保存路径为空，加载失败
