@@ -1,95 +1,15 @@
-import asyncio
-import librosa
-import numpy as np
-from concurrent.futures import ThreadPoolExecutor
+from pprint import pprint
 
-# 全局线程池用于执行阻塞操作
-executor = ThreadPoolExecutor(max_workers=4)
+import requests
 
+url = 'https://music.163.com/api/v1/cloud/get?limit=30&offset=0'
 
-async def async_get_instant_amplitude(mp3_path, target_freq, target_time, n_fft=2048):
-    """
-    异步获取瞬时频率振幅
-    """
-    loop = asyncio.get_running_loop()
+headers = {
+    'referer': 'https://music.163.com',
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36',
+    # 'cookies': 'NMTID=00O9xs3UVSfPX_mWkPEuqofuqH03IoAAAGWCOtPPA; _ntes_nnid=10a8218653af2096c92703d630f8f771,1743906361470; _ntes_nuid=10a8218653af2096c92703d630f8f771; WEVNSM=1.0.0; WNMCID=gpziqp.1743906361747.01.0; WM_TID=sHZ1ri%2FeXxhFEERVVEKHPADU6cp2Nuei; sDeviceId=YD-7wnFnWBe%2BSVEVwAFQBPCKQCErMtz1avQ; __snaker__id=qP4fuODvrYRUZWMn; ntes_utid=tid._.eqe9jRgjGD1AFxFQFRaSaAHQ%252BM4zwbUO._.0; ntes_kaola_ad=1; _iuqxldmzr_=32; gdxidpyhxdE=t8XTWbgJbvR5yNyrzMsWCmtn8ni%5CdVOwDoVLfMQKOpUN2%5CTpwHPixmsAtYGNQN9uNKuZuj6DcS8XZhOhhADwvn76OG8GJJIJ9tX%2FrwuKuwB0DwmLpsS%2B3N8xQBaLT4OptspfJZZ6auC5%5CJ6rY5UX4Rrn2NJs%5CjwQcsvyUHH2kS8JODMz%3A1749654836661; __csrf=3c2174659d9ec0d46c18cabf367895c1; MUSIC_U=009FECF64D0A36B76BC7517C1D895B5AE8AF98729C58651762B0A2CC5F44E613C0F1F4AFCD0B2DA6040491236C1B8D94A12A0BD9AFB85B2698818D0496365B7E509EEAE9FA762DB5701549AA26A4BF369D25D8738746AD429D0928B4C7D45147F2675832ABD06C2F72FFF4D468511006CECD04DD4E164B80BD0FAB11CEDC6820AAC18D54580AB01972F02D75E1A4FFE7A3099BEA42D6507680C8AA165B4A44F2F8729C1E6A1BEFFA0774CCE5D7B19FA6FC58F4E2A956427554CB32FFC2022588E9BECC597F19F318923DBD92A464AEEB95447DF7A9E395A5D60BCC4C2449FEEC6B463D9AB7759289D122C2CBD72F17D31282EA9601C1467BC3F7FA114D166EB10E60279E278BCD96CDACCD12D69D819BFF9F536AFBF6DF145FF836E97C7861F15B890E4408757801D63A189A226A6D403D9D6DDE249AE0CB4C420DE37FA3F9038D41B56DA6590EDEDD53E8A7F9A678330BEB8F43E94F60E07DCC38C8CCA41802FC; WM_NI=G1XoibRKePMU4z9Rl3Vr7%2FERQfeFW601gwyBBaqzfEb15cROdnhU%2BUAVwY1VvzPMPLyCg5rbjxFo9vEkqGxL2FXfLHAdLUhqvPuKBG96x2CmISjr1w9ZPtFyLn4J%2BCXHUXk%3D; WM_NIKE=9ca17ae2e6ffcda170e2e6eeb3c95aafb6aea6c473879e8fa7d15e968e9a86d645bbb0ae87e64fb6ac9f84f22af0fea7c3b92a85ef9890ec6a9295abb1d05ff8a6f7b3ef3996aef9d0c85a93baaba7d63ef4efa998fc4a82bfbf9be54fa2effb84d145a8b2a8b6aa5f838ab9bab45eb6a6a0aed348bb9da9d6f16aaaa88a90bc7e87b5bfa8fb48f29a9887cf4483bc84b6eb7bb690bbacc14dfbeab8d3c2678b8da693b47dfb86a095c57390b2fcabaa499c989bb9ea37e2a3; JSESSIONID-WYYY=9dPr%2F4ET9eGTa8VKTd0bRIJ7l9NwNy8CUg1DaQbl%5CGA5mH%2FvPUD3k%2BFY%2F42BlApgSVrdJNBTFtvUSdFxSvhbSkEg9AK9qUkYzAdNQEncDJKcOIFNcfRVhVjY%5CKMkbg3C%5Cz%2BuPiOJVq1GzW1YkKBr4uUVwBcGeSZpBKqlCXeAV4XjjXZD%3A1749993726646'
+}
 
-    # 异步执行阻塞的IO和计算操作
-    def _sync_task():
-        y, sr = librosa.load(mp3_path, sr=None, mono=True)
-        stft = librosa.stft(y, n_fft=n_fft)
-        magnitude = np.abs(stft)
-        freqs = librosa.fft_frequencies(sr=sr, n_fft=n_fft)
-        times = librosa.frames_to_time(range(stft.shape[1]), sr=sr, hop_length=n_fft // 4)
-        return magnitude, freqs, times, sr
+t = requests.get(url=url, headers=headers)
 
-    # 在线程池中执行同步任务
-    magnitude, freqs, times, sr = await loop.run_in_executor(executor, _sync_task)
-
-    # 主线程计算部分
-    frame_idx = np.argmin(np.abs(times - target_time))
-    freq_idx = np.argmin(np.abs(freqs - target_freq))
-    return magnitude[freq_idx, frame_idx]
-
-
-async def batch_analysis(tasks):
-    """
-    批量执行异步分析任务
-    """
-    # 创建异步任务列表
-    coroutines = [
-        async_get_instant_amplitude(
-            task["path"],
-            task["freq"],
-            task["time"]
-        )
-        for task in tasks
-    ]
-
-    # 并行执行所有任务
-    results = await asyncio.gather(*coroutines, return_exceptions=True)
-
-    # 处理结果
-    for task, result in zip(tasks, results):
-        if isinstance(result, Exception):
-            print(f"分析失败 {task['path']}: {str(result)}")
-        else:
-            print(f"{task['path']} 在 {task['time']}秒 的 {task['freq']}Hz 振幅: {result:.4f}")
-
-
-if __name__ == "__main__":
-    # # 创建测试任务列表
-    # analysis_tasks = [
-    #     {"path": "黄昏.mp3", "freq": 1000, "time": 5.0},
-    #     {"path": "黄昏.mp3", "freq": 1100, "time": 5.0},
-    #     {"path": "黄昏.mp3", "freq": 1200, "time": 5.0},
-    #     {"path": "黄昏.mp3", "freq": 1300, "time": 5.0},
-    #     {"path": "黄昏.mp3", "freq": 1400, "time": 5.0},
-    #     {"path": "黄昏.mp3", "freq": 1500, "time": 5.0},
-    #     {"path": "黄昏.mp3", "freq": 1600, "time": 5.0},
-    #
-    # ]
-    #
-    # # 运行异步事件循环
-    # asyncio.run(batch_analysis(analysis_tasks))
-    l = [
-        # 20Hz-40Hz称为极低频
-        20, 30, 40,
-        # 40Hz-80Hz称为低频
-        50, 60, 70, 80,
-        # 80Hz-160Hz称为中低频
-        100, 110, 120, 130, 140, 150, 160,
-        # 160Hz-1280Hz称为中频
-        200, 220, 240, 260, 280,
-        300, 320, 340, 360, 380,
-        400, 420, 440, 460, 480,
-        500, 520, 540, 560, 580,
-        600, 620, 640, 660, 680,
-        700, 720, 740, 760, 780,
-        800, 820, 840, 860, 880,
-        900, 920, 940, 960, 980,
-        1000, 1020, 1040, 1060, 1080,
-        1100, 1120, 1140, 1160, 1180,
-        1200, 1220, 1240, 1260, 1280
-    ]
-
-    print(len(l))
+pprint(t.text)

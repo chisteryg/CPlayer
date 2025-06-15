@@ -41,7 +41,7 @@ class NeteaseCloudMusicAPI:
             'referer': 'https://music.163.com',
             'user-agent': self.random_ua(),
             # 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36',
-            'cookies': 'NMTID=00O9xs3UVSfPX_mWkPEuqofuqH03IoAAAGWCOtPPA; _ntes_nnid=10a8218653af2096c92703d630f8f771,1743906361470; _ntes_nuid=10a8218653af2096c92703d630f8f771; WEVNSM=1.0.0; WNMCID=gpziqp.1743906361747.01.0; WM_TID=sHZ1ri%2FeXxhFEERVVEKHPADU6cp2Nuei; sDeviceId=YD-7wnFnWBe%2BSVEVwAFQBPCKQCErMtz1avQ; __snaker__id=qP4fuODvrYRUZWMn; ntes_utid=tid._.eqe9jRgjGD1AFxFQFRaSaAHQ%252BM4zwbUO._.0; ntes_kaola_ad=1; _iuqxldmzr_=32; gdxidpyhxdE=t8XTWbgJbvR5yNyrzMsWCmtn8ni%5CdVOwDoVLfMQKOpUN2%5CTpwHPixmsAtYGNQN9uNKuZuj6DcS8XZhOhhADwvn76OG8GJJIJ9tX%2FrwuKuwB0DwmLpsS%2B3N8xQBaLT4OptspfJZZ6auC5%5CJ6rY5UX4Rrn2NJs%5CjwQcsvyUHH2kS8JODMz%3A1749654836661; __csrf=3c2174659d9ec0d46c18cabf367895c1; MUSIC_U=009FECF64D0A36B76BC7517C1D895B5AE8AF98729C58651762B0A2CC5F44E613C0F1F4AFCD0B2DA6040491236C1B8D94A12A0BD9AFB85B2698818D0496365B7E509EEAE9FA762DB5701549AA26A4BF369D25D8738746AD429D0928B4C7D45147F2675832ABD06C2F72FFF4D468511006CECD04DD4E164B80BD0FAB11CEDC6820AAC18D54580AB01972F02D75E1A4FFE7A3099BEA42D6507680C8AA165B4A44F2F8729C1E6A1BEFFA0774CCE5D7B19FA6FC58F4E2A956427554CB32FFC2022588E9BECC597F19F318923DBD92A464AEEB95447DF7A9E395A5D60BCC4C2449FEEC6B463D9AB7759289D122C2CBD72F17D31282EA9601C1467BC3F7FA114D166EB10E60279E278BCD96CDACCD12D69D819BFF9F536AFBF6DF145FF836E97C7861F15B890E4408757801D63A189A226A6D403D9D6DDE249AE0CB4C420DE37FA3F9038D41B56DA6590EDEDD53E8A7F9A678330BEB8F43E94F60E07DCC38C8CCA41802FC; JSESSIONID-WYYY=gIWqXVnVPH%5CK6eBAadKVHBN59xyZyMH8zHQ2XqlsocGnwj1iFnir%2FElGv1lMeJ55M9KVWMAVCZJD57S%5CejinJ824AiZrmW8Y6PcNir5k304m8%2F0Sgbl%2BrcKMkarPdzY0Zc2RJ0RKR%2BNzBaBdTbZE%2BAcPQqs9tigsJJP3G13kjpjZnc75%3A1749990245149; WM_NI=G1XoibRKePMU4z9Rl3Vr7%2FERQfeFW601gwyBBaqzfEb15cROdnhU%2BUAVwY1VvzPMPLyCg5rbjxFo9vEkqGxL2FXfLHAdLUhqvPuKBG96x2CmISjr1w9ZPtFyLn4J%2BCXHUXk%3D; WM_NIKE=9ca17ae2e6ffcda170e2e6eeb3c95aafb6aea6c473879e8fa7d15e968e9a86d645bbb0ae87e64fb6ac9f84f22af0fea7c3b92a85ef9890ec6a9295abb1d05ff8a6f7b3ef3996aef9d0c85a93baaba7d63ef4efa998fc4a82bfbf9be54fa2effb84d145a8b2a8b6aa5f838ab9bab45eb6a6a0aed348bb9da9d6f16aaaa88a90bc7e87b5bfa8fb48f29a9887cf4483bc84b6eb7bb690bbacc14dfbeab8d3c2678b8da693b47dfb86a095c57390b2fcabaa499c989bb9ea37e2a3'
+            'cookie': 'NMTID=00O9xs3UVSfPX_mWkPEuqofuqH03IoAAAGWCOtPPA; _ntes_nnid=10a8218653af2096c92703d630f8f771,1743906361470; _ntes_nuid=10a8218653af2096c92703d630f8f771; WEVNSM=1.0.0; WNMCID=gpziqp.1743906361747.01.0; WM_TID=sHZ1ri%2FeXxhFEERVVEKHPADU6cp2Nuei; sDeviceId=YD-7wnFnWBe%2BSVEVwAFQBPCKQCErMtz1avQ; __snaker__id=qP4fuODvrYRUZWMn; ntes_utid=tid._.eqe9jRgjGD1AFxFQFRaSaAHQ%252BM4zwbUO._.0; ntes_kaola_ad=1; _iuqxldmzr_=32; gdxidpyhxdE=t8XTWbgJbvR5yNyrzMsWCmtn8ni%5CdVOwDoVLfMQKOpUN2%5CTpwHPixmsAtYGNQN9uNKuZuj6DcS8XZhOhhADwvn76OG8GJJIJ9tX%2FrwuKuwB0DwmLpsS%2B3N8xQBaLT4OptspfJZZ6auC5%5CJ6rY5UX4Rrn2NJs%5CjwQcsvyUHH2kS8JODMz%3A1749654836661; __csrf=3c2174659d9ec0d46c18cabf367895c1; MUSIC_U=009FECF64D0A36B76BC7517C1D895B5AE8AF98729C58651762B0A2CC5F44E613C0F1F4AFCD0B2DA6040491236C1B8D94A12A0BD9AFB85B2698818D0496365B7E509EEAE9FA762DB5701549AA26A4BF369D25D8738746AD429D0928B4C7D45147F2675832ABD06C2F72FFF4D468511006CECD04DD4E164B80BD0FAB11CEDC6820AAC18D54580AB01972F02D75E1A4FFE7A3099BEA42D6507680C8AA165B4A44F2F8729C1E6A1BEFFA0774CCE5D7B19FA6FC58F4E2A956427554CB32FFC2022588E9BECC597F19F318923DBD92A464AEEB95447DF7A9E395A5D60BCC4C2449FEEC6B463D9AB7759289D122C2CBD72F17D31282EA9601C1467BC3F7FA114D166EB10E60279E278BCD96CDACCD12D69D819BFF9F536AFBF6DF145FF836E97C7861F15B890E4408757801D63A189A226A6D403D9D6DDE249AE0CB4C420DE37FA3F9038D41B56DA6590EDEDD53E8A7F9A678330BEB8F43E94F60E07DCC38C8CCA41802FC; JSESSIONID-WYYY=gIWqXVnVPH%5CK6eBAadKVHBN59xyZyMH8zHQ2XqlsocGnwj1iFnir%2FElGv1lMeJ55M9KVWMAVCZJD57S%5CejinJ824AiZrmW8Y6PcNir5k304m8%2F0Sgbl%2BrcKMkarPdzY0Zc2RJ0RKR%2BNzBaBdTbZE%2BAcPQqs9tigsJJP3G13kjpjZnc75%3A1749990245149; WM_NI=G1XoibRKePMU4z9Rl3Vr7%2FERQfeFW601gwyBBaqzfEb15cROdnhU%2BUAVwY1VvzPMPLyCg5rbjxFo9vEkqGxL2FXfLHAdLUhqvPuKBG96x2CmISjr1w9ZPtFyLn4J%2BCXHUXk%3D; WM_NIKE=9ca17ae2e6ffcda170e2e6eeb3c95aafb6aea6c473879e8fa7d15e968e9a86d645bbb0ae87e64fb6ac9f84f22af0fea7c3b92a85ef9890ec6a9295abb1d05ff8a6f7b3ef3996aef9d0c85a93baaba7d63ef4efa998fc4a82bfbf9be54fa2effb84d145a8b2a8b6aa5f838ab9bab45eb6a6a0aed348bb9da9d6f16aaaa88a90bc7e87b5bfa8fb48f29a9887cf4483bc84b6eb7bb690bbacc14dfbeab8d3c2678b8da693b47dfb86a095c57390b2fcabaa499c989bb9ea37e2a3'
         }
 
         # 创建异步事件循环
@@ -84,7 +84,6 @@ class NeteaseCloudMusicAPI:
     async def post_url(self, url: str, data: dict) -> dict:
         """异步post请求单个 URL"""
         try:
-            pprint(self.headers)
             response = await self.AsyncClient.post(url, headers=self.headers, data=data, timeout=self.timeout)
             response_data = {
                 'requests_status': True,
@@ -283,7 +282,10 @@ class NeteaseCloudMusicAPI:
                 song_detail['vip'] = True if data['fee'] == 1 else False
                 # 图片地址
                 song_detail['picUrl'] = data['album']['picUrl']
-                song_detail['img_path'] = self.async_function(self.get_pic('0', data['album']['picUrl']))[1]
+                if data['album']['picUrl']:
+                    song_detail['img_path'] = self.async_function(self.get_pic('0', data['album']['picUrl']))[1]
+                else:
+                    song_detail['img_path'] = None
                 # 歌手
                 song_detail['ar'] = data['artists']
                 # 时长
@@ -513,18 +515,16 @@ class NeteaseCloudMusicAPI:
                 f.write(lrc)
         result['lrc_save_path'] = lrc_path
 
-        # 通过接口获取音乐下载url
-        br = detail['data']['max_br']
-        # data = {
-        #     'ids': f'[{song_id}]',
-        #     'br': f'{br}'
-        #
-        # }
-        # url = f'https://music.163.com/api/song/enhance/player/url'
-        url = f'https://music.163.com/api/song/enhance/player/url?ids=["{song_id}"]&br={br}'
-        print(url)
-        download_url = json.loads(self.async_function(self.get_url(url=url))['data'].text)
-        pprint(download_url)
+        music_path = None
+        try:
+            # 通过接口获取音乐下载url
+            br = detail['data']['max_br']
+            url = f'https://music.163.com/api/song/enhance/player/url?ids=["{song_id}"]&br={br}'
+            download_info = json.loads(self.async_function(self.get_url(url=url))['data'].text)
+            music_type = download_info['data'][0]['type']
+            download_url = download_info['data'][0]['url']
+        except Exception as e:
+            print(e)
 
 
         # result['music_save_path'] = music_path
@@ -910,37 +910,45 @@ class NeteaseCloudMusicAPI:
 
     '''↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 云盘相关方法 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓'''
 
-    def cloud(self, limit: int = 20, offset: int = 0):
+    def cloud_info(self, page: int = 1, count: int = 30) -> dict:
         # 用户云盘内容（音乐直接根据id下载）
+        limit = count
+        offset = (page - 1) * count
+
         url = f'https://music.163.com/api/v1/cloud/get?limit={limit}&offset={offset}'
         result = self.async_function(self.get_url(url=url))
-        pprint(result)
         if result['requests_status'] and result['code'] == 200:
             # 请求成功
             data = json.loads(result['data'].text)
-            print(data)
+            pprint(data)
             result['api_return_code'] = data['code']
             if data['code'] == 200:
                 # 接口返回成功
                 # 筛选所需数据
                 cloud_info = {}
                 img_url_dict = {}
-                cloud_info['count'] = result['count']
+                # 云盘音乐总数
+                cloud_info['count'] = data['count']
+                # 云盘音乐页数
+                cloud_info['page'] = page
+                # 云盘音乐最大页数
+                cloud_info['max_page'] = math.ceil(data['count'] / count)
+
+                #
                 cloud_info['songs'] = {}
-                result = result['data']
+                data = data['data']
 
                 i = 1
-                for item in result:
+                for item in data:
                     cloud_info['songs'][i] = {}
                     # 文件名称
-                    cloud_info['songs'][i]['fileName'] = item['fileName']
+                    cloud_info['songs'][i]['songName'] = item['songName']
                     # 专辑图片
                     cloud_info['songs'][i]['picUrl'] = item['simpleSong']['al']['picUrl']
                     img_url_dict[i] = {}
                     img_url_dict[i]['url'] = item['simpleSong']['al']['picUrl']
-
                     # 歌手
-                    cloud_info['songs'][i]['ar'] = item['simpleSong']['ar']
+                    cloud_info['songs'][i]['artist'] = item['artist']
                     # 时长
                     cloud_info['songs'][i]['dt'] = item['simpleSong']['dt']
                     # 音乐名称
@@ -948,7 +956,7 @@ class NeteaseCloudMusicAPI:
                     # id
                     cloud_info['songs'][i]['songId'] = item['songId']
                     i += 1
-                pprint(img_url_dict)
+                # pprint(img_url_dict)
                 imgs_dict = self.async_function(self.get_pics(urls_dict=img_url_dict))
                 for key in imgs_dict:
                     cloud_info['songs'][key]['img_path'] = imgs_dict[key]['save_path']
@@ -958,6 +966,28 @@ class NeteaseCloudMusicAPI:
             else:
                 result['data'] = None
         return result
+
+    def cloud_del(self, song_id: str) -> dict:
+        # 删除云盘音乐
+        url = f'https://music.163.com//api/cloud/del?songIds=[{song_id}]'
+        result = self.async_function(self.get_url(url=url))
+        if result['requests_status'] and result['code'] == 200:
+            # 请求成功
+            data = json.loads(result['data'].text)
+            result['api_return_code'] = data['code']
+            if data['code'] == 200:
+                # 接口返回成功
+                '''
+                成功删除返回示例
+                {'succIds': [26600702], 'failIds': [], 'code': 200}
+                '''
+                data = json.loads(result['data'].text)
+                result['data'] = data
+            else:
+                result['data'] = None
+        return result
+
+
 
     '''↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 云盘相关方法 ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑'''
 
@@ -1044,7 +1074,6 @@ if __name__ == '__main__':
     # pprint(n.playlist_info('331841455', page=2, music_count=10))
     # pprint(n.save_song('2688097771'))
     # pprint(n.save_song_v2('40558833'))
-    # pprint(n.save_song_v3('40558833'))
-    # n.save_song_v3('40558833')
-    pprint(n.cloud())
+    # pprint(n.cloud_info())
+    pprint(n.cloud_del('26600702'))
     print(time.time() - t1)
