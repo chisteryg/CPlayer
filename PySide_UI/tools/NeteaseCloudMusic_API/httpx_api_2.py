@@ -1,4 +1,5 @@
 # 网易云音乐httpx版接口
+import hashlib
 import json
 import math
 import os
@@ -9,6 +10,7 @@ import asyncio
 import httpx
 
 from fake_useragent import UserAgent
+from pydub import AudioSegment
 
 # Windows 兼容性修复
 if sys.platform == "win32":
@@ -385,7 +387,6 @@ class NeteaseCloudMusicAPI:
         detail = self.song_detail(song_id)
         result['song_detail'] = detail['data']
 
-
         # 通过接口方式获取高品质音乐下载地址
         # 音乐下载地址，level代表音质等级，encodeType代表编码类型，flac可存储无损音质，目前无法下载无损音乐
         # 音质 standard标准 higher较高 exhigh极高 lossless无损 hires
@@ -491,6 +492,7 @@ class NeteaseCloudMusicAPI:
         result['music_save_path'] = music_path
 
         return result
+
     def save_song_v3(self, song_id) -> dict:
         # 下载单曲（接口）
         # 音乐下载地址，level代表音质等级，encodeType代表编码类型，flac可存储无损音质，目前无法下载无损音乐
@@ -525,7 +527,6 @@ class NeteaseCloudMusicAPI:
             download_url = download_info['data'][0]['url']
         except Exception as e:
             print(e)
-
 
         # result['music_save_path'] = music_path
 
@@ -907,7 +908,6 @@ class NeteaseCloudMusicAPI:
 
     '''↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ mv相关方法 ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑'''
 
-
     '''↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 云盘相关方法 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓'''
 
     def cloud_info(self, page: int = 1, count: int = 30) -> dict:
@@ -967,10 +967,90 @@ class NeteaseCloudMusicAPI:
                 result['data'] = None
         return result
 
-    def cloud_upload(self, mvid: str = '522365') -> dict:
+    def cloud_upload(self) -> dict:
+        file_path = '../player/1.flac'
+        # 加载音频文件
+        audio = AudioSegment.from_file(file_path)
 
+        # 获取时长（毫秒）
+        duration_ms = len(audio)
+
+        # 获取比特率（kbps）
+        bit_rate = audio.frame_rate * audio.sample_width * 8 * audio.channels
+
+        # 获取md5
+        md5 = self.get_file_md5(file_path)
+
+        # 检测是否需要上传文件
+        url = 'https://interface.music.163.com/api/cloud/upload/check'
+        data = {
+            'bitrate': str(bit_rate),
+            'ext': '',
+            'length': duration_ms,
+            'md5': md5,
+            'songId': '0',
+            'version': 1,
+        }
+
+        data = self.async_function(self.post_url(url=url, data=data))
+        # pprint(data)
+        data = json.loads(data['data'].text)
+        # 获取songId后续上传使用
+        song_id = data['songId']
+        pprint(data)
+
+        # 获取上传token
+        url = 'https://music.163.com/api/nos/token/alloc'
+        data = {
+            'bucket': '',
+            'ext': 'flac',
+            'filename': '1.flac',
+            'local': False,
+            'nos_product': 3,
+            'type': 'audio',
+            'md5': md5,
+        }
+
+        data = self.async_function(self.post_url(url=url, data=data))
+        data = json.loads(data['data'].text)
+        pprint(data)
+        # 获取resourceId， 后续上传使用
+        resourceId = data['result']['resourceId']
+
+        # 上传
+        url = 'https://music.163.com/api/upload/cloud/info/v2'
+        data = {
+            'md5': md5,
+            'songid': song_id,
+            'filename': '1.flac',  # 文件名
+            'song': '1.flac',  # 音乐名
+            'album': '未知专辑',
+            'artist': '未知艺术家',
+            'bitrate': str(bit_rate),
+            'resourceId': resourceId,
+        }
+        data = self.async_function(self.post_url(url=url, data=data))
+        data = json.loads(data['data'].text)
+        # 获取音乐id供上传使用
+        songId = data['songId']
+        pprint(data)
+
+        url = 'https://interface.music.163.com/api/cloud/pub/v2'
+        data = {
+            'songid': songId,
+        }
+        data = self.async_function(self.post_url(url=url, data=data))
+        data = json.loads(data['data'].text)
+        pprint(data)
+        # print(duration_sec, bitrate, md5)
 
         return {}
+
+    def get_file_md5(self, file_path):
+        """计算文件的 MD5 哈希值"""
+        with open(file_path, 'rb') as f:
+            file_data = f.read()
+            return hashlib.md5(file_data).hexdigest()
 
     def cloud_del(self, song_id: str) -> dict:
         # 删除云盘音乐
@@ -992,10 +1072,7 @@ class NeteaseCloudMusicAPI:
                 result['data'] = None
         return result
 
-
-
     '''↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 云盘相关方法 ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑'''
-
 
     '''工具方法'''
 
@@ -1080,5 +1157,5 @@ if __name__ == '__main__':
     # pprint(n.save_song('2688097771'))
     # pprint(n.save_song_v2('40558833'))
     # pprint(n.cloud_info())
-    pprint(n.cloud_del('26600702'))
+    pprint(n.cloud_upload())
     print(time.time() - t1)
