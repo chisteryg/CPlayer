@@ -1051,7 +1051,6 @@ class NeteaseCloudMusicAPI:
         with open(file_path, 'rb') as f:
             file_data = f.read()
             return hashlib.md5(file_data).hexdigest()
-
     def cloud_del(self, song_id: str) -> dict:
         # 删除云盘音乐
         url = f'https://music.163.com//api/cloud/del?songIds=[{song_id}]'
